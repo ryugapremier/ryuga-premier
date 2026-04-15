@@ -1,0 +1,4210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>首里ハイヤー｜沖縄プレミアムハイヤー</title>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&family=Zen+Antique+Soft&family=Noto+Sans+JP:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:         #f7f3ee;
+  --deep:       #ede7de;
+  --surface:    #ffffff;
+  --surface2:   #f2ede6;
+  --border:     #d8cfc4;
+  --border2:    #e8e2da;
+  --green:      #2d6e45;
+  --green-mid:  #3d8a58;
+  --green-light:#4a9e68;
+  --gold:       #9a7230;
+  --gold-light: #b8893a;
+  --gold-dim:   rgba(154,114,48,0.12);
+  --gold-glow:  rgba(154,114,48,0.30);
+  --cream:      #f0e8d8;
+  --white:      #1a1a1a;
+  --muted:      #7a7060;
+  --ryukyu-red: #8b2c2c;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── フォント定義 ── */
+/* 日本語：筆文字系 */
+/* Kaisei Decol   … 力強い筆の太線・見出し向け */
+/* Zen Antique Soft … 柔らかい筆跡・本文向け  */
+/* 英字：Playfair Display … 大きくエレガントな欧文セリフ */
+
+/* 筆文字フォント上書き */
+.hero-title        { font-family: 'Kaisei Decol', serif !important; font-weight: 700 !important; letter-spacing: 0.4em !important; }
+.section-ja        { font-family: 'Kaisei Decol', serif !important; font-weight: 700 !important; }
+.service-name-ja   { font-family: 'Kaisei Decol', serif !important; font-weight: 700 !important; }
+.course-name-ja    { font-family: 'Kaisei Decol', serif !important; font-weight: 700 !important; }
+.field-label       { font-family: 'Zen Antique Soft', serif !important; }
+.confirm-key       { font-family: 'Zen Antique Soft', serif !important; }
+.confirm-val       { font-family: 'Zen Antique Soft', serif !important; }
+.concept-text      { font-family: 'Zen Antique Soft', serif !important; line-height: 2.6 !important; }
+.complete-title    { font-family: 'Kaisei Decol', serif !important; font-weight: 700 !important; letter-spacing: 0.35em !important; }
+.complete-msg      { font-family: 'Zen Antique Soft', serif !important; }
+.notice-box        { font-family: 'Zen Antique Soft', serif !important; }
+.footer-name-ja    { font-family: 'Kaisei Decol', serif !important; font-weight: 700 !important; }
+.footer-info       { font-family: 'Zen Antique Soft', serif !important; }
+.btn-yoyaku        { font-family: 'Kaisei Decol', serif !important; }
+.btn-next          { font-family: 'Kaisei Decol', serif !important; }
+.btn-back          { font-family: 'Zen Antique Soft', serif !important; }
+.btn-reset         { font-family: 'Kaisei Decol', serif !important; }
+.service-desc      { font-family: 'Zen Antique Soft', serif !important; }
+.confirm-block-head { font-family: 'Zen Antique Soft', serif !important; }
+.booking-num-value { font-family: 'Playfair Display', serif !important; }
+
+/* 英字：Playfair Display で大きく・インパクトに */
+.hero-en           { font-family: 'Playfair Display', serif !important; font-style: italic !important; font-size: 16px !important; letter-spacing: 0.3em !important; }
+.hero-title-en     { font-family: 'Playfair Display', serif !important; font-style: italic !important; font-size: clamp(22px, 4vw, 34px) !important; letter-spacing: 0.25em !important; color: var(--gold-light) !important; }
+.section-en        { font-family: 'Playfair Display', serif !important; font-style: italic !important; font-size: clamp(20px, 3.5vw, 30px) !important; letter-spacing: 0.15em !important; display: block !important; margin-bottom: 12px !important; }
+.service-name-en   { font-family: 'Playfair Display', serif !important; font-style: italic !important; font-size: 15px !important; letter-spacing: 0.15em !important; }
+.footer-name-en    { font-family: 'Playfair Display', serif !important; font-style: italic !important; font-size: 18px !important; letter-spacing: 0.2em !important; }
+.service-num       { font-family: 'Playfair Display', serif !important; font-size: 13px !important; letter-spacing: 0.2em !important; }
+.booking-num-label { font-family: 'Cormorant', serif !important; font-style: italic !important; font-size: 13px !important; letter-spacing: 0.4em !important; }
+.scroll-down-text  { font-family: 'Playfair Display', serif !important; font-style: italic !important; font-size: 12px !important; }
+
+/* ── VIDEO SECTION ── */
+.video-section {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.video-bg-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.video-bg-wrap iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.78vh; /* 16:9アスペクト比 */
+  height: 100vh;
+  min-width: 100%;
+  min-height: 56.25vw;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(247,243,238,0.7) 0%,
+      rgba(247,243,238,0.45) 20%,
+      rgba(247,243,238,0.40) 60%,
+      rgba(247,243,238,0.70) 85%,
+      var(--bg) 100%
+    );
+  z-index: 1;
+}
+
+.video-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 32px;
+}
+
+.video-content-inner {
+  max-width: 640px;
+}
+
+.video-label {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  margin-bottom: 16px;
+  text-shadow: 0 0 40px rgba(212,168,67,0.5);
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards 0.3s;
+}
+
+.video-title {
+  font-family: 'Kaisei Decol', serif;
+  font-size: clamp(28px, 5.5vw, 52px);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  line-height: 1.5;
+  color: var(--white);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.6);
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards 0.5s;
+}
+
+.video-desc {
+  font-family: 'Zen Antique Soft', serif;
+  font-size: clamp(12px, 2vw, 15px);
+  line-height: 2.2;
+  letter-spacing: 0.12em;
+  color: rgba(240,232,216,0.7);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards 0.9s;
+}
+
+.video-scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+}
+
+/* ── 琉球文様 背景パターン ── */
+.ryukyu-pattern {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+  background-image:
+    repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%),
+    repeating-linear-gradient(-45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%);
+  background-size: 32px 32px;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 100% 70% at 50% 30%, rgba(45,110,69,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 40% at 50% 80%, rgba(154,114,48,0.06) 0%, transparent 60%),
+    linear-gradient(180deg, #f0ebe2 0%, #e8e0d4 40%, #f0ebe2 100%);
+}
+
+/* 波紋エフェクト */
+.hero-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(154,114,48,0.06);
+  animation: ripple 8s ease-in-out infinite;
+}
+.hero-ripple:nth-child(2) { width: 800px; height: 800px; animation-delay: 2s; opacity: 0.6; }
+.hero-ripple:nth-child(3) { width: 1000px; height: 1000px; animation-delay: 4s; opacity: 0.3; }
+
+@keyframes ripple {
+  0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 0.4; }
+  50%      { transform: translate(-50%,-50%) scale(1.05); opacity: 0.8; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 32px;
+}
+
+/* 家紋風ロゴマーク */
+.hero-kamon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 28px;
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards 0.2s;
+}
+
+.hero-kamon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-en {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: none;
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards 0.4s;
+}
+
+.hero-title {
+  font-family: 'Kaisei Decol', serif;
+  font-size: clamp(52px, 11vw, 88px);
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  line-height: 1.1;
+  color: var(--white);
+  text-shadow: 0 0 60px rgba(29,77,46,0.5);
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards 0.6s;
+  margin-bottom: 4px;
+}
+
+.hero-title-en {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: var(--gold-light);
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards 0.8s;
+  margin-bottom: 24px;
+}
+
+.hero-catch {
+  font-family: 'Zen Antique Soft', serif;
+  font-size: clamp(12px, 2vw, 15px);
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  color: var(--muted);
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards 1s;
+  margin-bottom: 48px;
+  line-height: 2;
+}
+
+/* 金の区切り線 */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto 48px;
+  width: 280px;
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards 1.1s;
+}
+
+.gold-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.gold-divider-line:last-child {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.gold-divider-diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.hero-cta {
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards 1.2s;
+}
+
+.btn-yoyaku {
+  display: inline-block;
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Kaisei Decol', serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  padding: 18px 56px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.btn-yoyaku::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(-101%);
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.btn-yoyaku:hover {
+  color: var(--bg);
+  box-shadow: 0 0 32px var(--gold-glow);
+}
+
+.btn-yoyaku:hover::before {
+  transform: translateX(0);
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeDown 1.2s ease forwards 1.6s;
+}
+
+.scroll-down-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--muted);
+}
+
+.scroll-down-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(180deg, var(--gold), transparent);
+  animation: scrollAnim 2.5s ease infinite;
+}
+
+@keyframes scrollAnim {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0.3; }
+}
+
+/* ── CONCEPT SECTION ── */
+.concept {
+  position: relative;
+  z-index: 1;
+  padding: 100px 32px;
+  text-align: center;
+  background: var(--deep);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section-en {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(22px, 3.5vw, 32px);
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: none;
+  margin-bottom: 12px;
+}
+
+.section-ja {
+  font-family: 'Kaisei Decol', serif;
+  font-size: clamp(26px, 5vw, 42px);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--white);
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.concept-text {
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2.4;
+  color: var(--muted);
+  max-width: 560px;
+  margin: 0 auto 56px;
+  letter-spacing: 0.08em;
+}
+
+/* ── SERVICE CARDS ── */
+.services {
+  position: relative;
+  z-index: 1;
+  padding: 80px 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.service-card {
+  background: #ffffff;
+  padding: 48px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s;
+  cursor: default;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover { background: var(--surface2); }
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--green-mid);
+  margin-bottom: 20px;
+}
+
+.service-icon-wrap {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.4s;
+  transform: rotate(45deg);
+  overflow: hidden;
+}
+.service-card:hover .service-icon-wrap {
+  border-color: var(--gold);
+}
+.service-icon-inner {
+  transform: rotate(-45deg);
+  width: 42px; height: 42px;
+  display: flex; align-items: center; justify-content: center;
+}
+.service-icon-inner svg { width: 42px; height: 42px; }
+.service-icon-inner svg .ci {
+  fill: none; stroke: var(--gold);
+  stroke-linecap: round; stroke-linejoin: round;
+  transition: stroke 0.3s;
+}
+.service-icon-inner svg .ci-fill {
+  fill: var(--gold); stroke: none;
+  transition: fill 0.3s;
+}
+
+.service-name-ja {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.service-name-en {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.service-price {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 20px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.service-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 2;
+  letter-spacing: 0.05em;
+}
+
+/* ── BOOKING SECTION ── */
+#booking {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 100px 32px;
+}
+
+.booking-inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ステップインジケーター */
+.step-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 56px;
+  gap: 0;
+}
+
+.step-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--deep);
+  transition: all 0.4s;
+  position: relative;
+  z-index: 1;
+}
+
+.step-circle.active {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(212,168,67,0.15);
+  box-shadow: 0 0 20px rgba(212,168,67,0.45), 0 0 40px rgba(212,168,67,0.15);
+  font-weight: 600;
+}
+
+.step-circle.done {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.step-label {
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+}
+
+.step-label.active { color: var(--gold); }
+
+.step-connector {
+  width: 56px;
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 18px;
+  transition: background 0.4s;
+}
+
+.step-connector.done { background: var(--gold); }
+
+/* フォームステップ */
+.form-step { display: none; }
+.form-step.active { display: block; }
+
+/* フィールド */
+.field {
+  margin-bottom: 28px;
+}
+
+.field-label {
+  display: block;
+  font-family: 'Kaisei Decol', serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.field-required {
+  font-size: 10px;
+  color: var(--ryukyu-red);
+  margin-left: 6px;
+  letter-spacing: 0;
+}
+
+.field-input, .field-select, .field-textarea {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--border2);
+  border-bottom: 1px solid var(--border);
+  color: var(--white);
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 14px 16px;
+  outline: none;
+  transition: all 0.3s;
+  -webkit-appearance: none;
+  appearance: none;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+}
+
+.field-input:focus, .field-select:focus, .field-textarea:focus {
+  border-color: var(--gold);
+  background: #ffffff;
+  box-shadow: 0 0 0 2px rgba(154,114,48,0.15);
+}
+
+.field-input.filled, .field-select.filled {
+  border-color: rgba(154,114,48,0.5);
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.field-input::placeholder, .field-textarea::placeholder {
+  color: #b0a898;
+  font-family: 'Zen Antique Soft', serif;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.field-select option {
+  background: var(--surface2);
+  font-family: 'Zen Antique Soft', serif;
+}
+
+.field-textarea {
+  height: 100px;
+  resize: vertical;
+  line-height: 1.8;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* コース選択カード */
+.course-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.course-card {
+  border: 1px solid var(--border);
+  padding: 24px 18px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.course-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.course-card:hover { border-color: var(--green-mid); background: var(--surface2); }
+.course-card:hover::after { transform: scaleX(1); }
+
+.course-card.selected {
+  border-color: var(--gold);
+  background: rgba(154,114,48,0.07);
+  box-shadow: 0 0 0 2px rgba(154,114,48,0.3), 0 4px 20px rgba(154,114,48,0.15);
+}
+
+.course-card.selected::after { transform: scaleX(1); }
+
+/* 選択済み：テキストはダーク系で統一 */
+.course-card.selected .course-name-ja { color: #2d2010; text-shadow: none; }
+.course-card.selected .course-price   { color: var(--gold); text-shadow: none; }
+.course-card.selected .course-desc    { color: #5a4a30; }
+.course-card.selected .course-num     { color: var(--gold); }
+
+/* 選択済みアイコン枠も光る */
+.course-card.selected .course-icon-wrap {
+  border-color: var(--gold);
+  box-shadow: 0 0 14px rgba(212,168,67,0.4);
+}
+
+/* 上部ライン */
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,168,67,0), transparent);
+  transition: background 0.4s;
+}
+
+.course-card.selected::before {
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.course-check {
+  position: absolute;
+  top: 10px; right: 12px;
+  width: 20px; height: 20px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: transparent;
+  transition: all 0.3s;
+}
+
+.course-card.selected .course-check {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg);
+  box-shadow: 0 0 10px rgba(212,168,67,0.5);
+}
+
+.course-name-ja {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--white);
+  margin-bottom: 4px;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.course-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.course-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  transition: color 0.3s;
+}
+
+/* アイコン枠（コースカード内） */
+.course-icon-wrap {
+  width: 64px; height: 64px;
+  margin: 0 auto 14px;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 0 4px rgba(154,114,48,0.12), inset 0 0 0 1px rgba(154,114,48,0.2);
+  display: flex; align-items: center; justify-content: center;
+  transform: rotate(45deg);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  background: rgba(154,114,48,0.04);
+}
+.course-card:hover .course-icon-wrap {
+  border-color: var(--gold-light);
+  box-shadow: 0 0 0 5px rgba(154,114,48,0.18), inset 0 0 0 1px rgba(154,114,48,0.3);
+}
+.course-icon-inner {
+  transform: rotate(-45deg);
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+}
+.course-icon-inner svg {
+  width: 40px; height: 40px;
+}
+.course-icon-inner svg .ci {
+  fill: none;
+  stroke: var(--gold);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s;
+}
+.course-icon-inner svg .ci-fill {
+  fill: var(--gold);
+  stroke: none;
+  transition: fill 0.3s;
+}
+.course-card.selected .course-icon-wrap {
+  border-color: var(--gold);
+  background: var(--gold);
+  box-shadow: 0 0 0 5px rgba(154,114,48,0.25);
+}
+.course-card.selected .course-icon-inner svg .ci { stroke: #ffffff; }
+.course-card.selected .course-icon-inner svg .ci-fill { fill: #ffffff; }
+
+/* ボタン */
+.btn-next {
+  width: 100%;
+  background: #1a2d5a;
+  border: none;
+  color: #ffffff;
+  font-family: 'Kaisei Decol', serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(26,45,90,0.3);
+}
+
+.btn-next::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.08);
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+}
+
+.btn-next:hover {
+  background: #142248;
+  box-shadow: 0 6px 24px rgba(26,45,90,0.4);
+}
+
+.btn-next:hover::before { transform: translateX(0); }
+
+.btn-back {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  padding: 13px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.btn-back:hover { border-color: var(--muted); color: var(--white); }
+
+/* エラー */
+.field-error {
+  font-size: 11px;
+  color: #d97070;
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* 確認画面 */
+.confirm-block {
+  border: 1px solid var(--border);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.confirm-block-head {
+  background: #ffffff;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  font-family: 'Kaisei Decol', serif;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+}
+
+.confirm-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(200,190,180,0.5);
+  gap: 20px;
+}
+
+.confirm-row:last-child { border-bottom: none; }
+
+.confirm-key {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+  font-family: 'Zen Antique Soft', serif;
+  flex-shrink: 0;
+}
+
+.confirm-val {
+  font-size: 13px;
+  color: var(--white);
+  text-align: right;
+  font-family: 'Zen Antique Soft', serif;
+  letter-spacing: 0.05em;
+}
+
+.notice-box {
+  background: rgba(45,110,69,0.06);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--gold);
+  padding: 14px 18px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 2;
+  margin-bottom: 24px;
+  font-family: 'Zen Antique Soft', serif;
+  letter-spacing: 0.05em;
+}
+
+/* 完了画面 */
+.complete-wrap {
+  text-align: center;
+  padding: 32px 0;
+}
+
+.complete-kamon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 28px;
+  animation: completeSpin 0.8s ease;
+}
+
+@keyframes completeSpin {
+  from { transform: scale(0) rotate(-90deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.complete-title {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.complete-msg {
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 2.4;
+  margin-bottom: 36px;
+  letter-spacing: 0.08em;
+}
+
+.booking-num-wrap {
+  border: 1px solid var(--gold);
+  padding: 24px;
+  margin-bottom: 32px;
+  background: var(--gold-dim);
+}
+
+.booking-num-label {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.booking-num-value {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.2em;
+}
+
+.btn-reset {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Kaisei Decol', serif;
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  padding: 14px 40px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-reset:hover {
+  background: var(--gold-dim);
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 1;
+  padding: 64px 32px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.footer-kamon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 20px;
+  opacity: 0.6;
+}
+
+.footer-name-ja {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.footer-name-en {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--green-mid);
+  margin-bottom: 24px;
+}
+
+.footer-info {
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 2.2;
+  letter-spacing: 0.08em;
+}
+
+/* ── PAYMENT STEP ── */
+.pay-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.pay-card {
+  border: 1px solid var(--border);
+  padding: 18px 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.pay-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.pay-card:hover { border-color: var(--green-mid); background: var(--surface2); }
+.pay-card:hover::after { transform: scaleX(1); }
+
+.pay-card.selected {
+  border-color: var(--gold);
+  background: rgba(154,114,48,0.08);
+  box-shadow: 0 2px 16px rgba(154,114,48,0.15);
+}
+
+.pay-card.selected::after { transform: scaleX(1); }
+
+.pay-card.selected::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.pay-check {
+  position: absolute;
+  top: 8px; right: 10px;
+  width: 18px; height: 18px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: transparent;
+  transition: all 0.3s;
+}
+
+.pay-card.selected .pay-check {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg);
+  box-shadow: 0 0 8px rgba(212,168,67,0.5);
+}
+
+.pay-icon-wrap {
+  width: 42px; height: 42px;
+  margin: 0 auto 10px;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  transform: rotate(45deg);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.pay-icon-inner { transform: rotate(-45deg); }
+
+.pay-card.selected .pay-icon-wrap {
+  border-color: var(--gold);
+  box-shadow: 0 0 10px rgba(212,168,67,0.35);
+}
+
+.pay-name-ja {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  margin-bottom: 3px;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.pay-card.selected .pay-name-ja {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(212,168,67,0.4);
+}
+
+.pay-name-en {
+  font-family: 'Playfair Display', serif;
+  font-size: 10px; font-style: italic;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.pay-card.selected .pay-name-en { color: rgba(212,168,67,0.7); }
+
+/* ビジュアルカード */
+.pay-visual-card {
+  background: linear-gradient(135deg, #2d6e45 0%, #1a4d2e 100%);
+  border: 1px solid rgba(212,168,67,0.4);
+  border-radius: 2px;
+  padding: 1.5rem;
+  margin-bottom: 20px;
+  min-height: 130px;
+  position: relative;
+}
+
+.pvc-chip {
+  width: 30px; height: 22px;
+  background: rgba(212,168,67,0.3);
+  border: 1px solid rgba(212,168,67,0.6);
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+
+.pvc-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; letter-spacing: 0.18em;
+  color: var(--white); margin-bottom: 1rem;
+}
+
+.pvc-bottom {
+  display: flex; justify-content: space-between; align-items: flex-end;
+}
+
+.pvc-label { font-size: 9px; color: #7a8c7e; letter-spacing: 0.15em; margin-bottom: 2px; }
+.pvc-val { font-size: 12px; color: var(--white); }
+.pvc-brand { font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic; color: var(--gold); }
+
+/* 代替決済メッセージ */
+.pay-alt-msg {
+  background: rgba(45,110,69,0.05);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--gold);
+  padding: 24px 20px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.pay-alt-qr {
+  width: 72px; height: 72px;
+  background: var(--white);
+  border-radius: 2px;
+  margin: 0 auto 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: #333;
+  font-family: 'Playfair Display', serif;
+}
+
+.pay-alt-icon { font-size: 32px; margin-bottom: 10px; }
+
+.pay-alt-title {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 16px; font-weight: 600;
+  letter-spacing: 0.2em; color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.pay-alt-sub {
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 12px; color: var(--muted);
+  line-height: 2; letter-spacing: 0.05em;
+}
+
+.loc-suggest-item {
+  padding: 12px 16px;
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 13px;
+  color: var(--white);
+  cursor: pointer;
+  border-bottom: 1px solid var(--border2);
+  transition: background 0.2s;
+  line-height: 1.5;
+}
+.loc-suggest-item:last-child { border-bottom: none; }
+.loc-suggest-item:hover { background: var(--gold-dim); color: var(--gold); }
+.loc-suggest-item .suggest-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* 時刻ドラムピッカー */
+.time-drum {
+  width: 100%;
+  height: 132px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  position: relative;
+}
+.time-drum::-webkit-scrollbar { display: none; }
+.time-drum-item {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #b0a898;
+  cursor: pointer;
+  transition: color 0.15s;
+  letter-spacing: 0.05em;
+}
+.time-drum-item.active {
+  color: #1a2d5a;
+  font-size: 26px;
+  font-weight: 700;
+}
+.time-drum::before,
+.time-drum::after {
+  content: '';
+  position: sticky;
+  display: block;
+  height: 1px;
+  background: rgba(26,45,90,0.25);
+  z-index: 2;
+}
+.time-drum::before { top: 44px; }
+.time-drum::after  { top: 87px; }
+
+/* ── 言語選択 ── */
+#lang-selector {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  display: flex;
+  gap: 6px;
+}
+.lang-btn {
+  background: rgba(10,20,14,0.85);
+  border: 1px solid rgba(212,168,67,0.4);
+  color: var(--gold);
+  font-size: 11px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: 'Zen Antique Soft', serif;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+.lang-btn:hover, .lang-btn.active {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+/* ── 言語選択モーダル ── */
+#lang-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(247,243,238,0.98);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.lang-modal-inner {
+  text-align: center;
+  padding: 40px 24px;
+  max-width: 400px;
+  width: 100%;
+}
+.lang-modal-logo {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: 0.4em;
+  margin-bottom: 8px;
+}
+.lang-modal-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.3em;
+  margin-bottom: 40px;
+}
+.lang-modal-label {
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.3em;
+  margin-bottom: 20px;
+}
+.lang-modal-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.lang-modal-btn {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 16px;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.lang-modal-btn:hover {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+}
+.lang-modal-btn .flag { font-size: 28px; }
+.lang-modal-btn .lang-name { font-family: 'Zen Antique Soft', serif; font-size: 13px; color: var(--white); }
+.lang-modal-btn .lang-native { font-size: 11px; color: var(--muted); }
+
+/* ── 角丸1枚カード ── */
+.round-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.rc-row {
+  display: flex;
+  align-items: center;
+  padding: 22px 18px;
+  gap: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.rc-row:last-child { border-bottom: none; }
+.rc-row:hover { background: rgba(255,255,255,0.04); }
+.rc-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rc-icon svg { width: 26px; height: 26px; }
+.rc-green { background: rgba(61,138,88,0.18); }
+.rc-body { flex: 1; min-width: 0; }
+.rc-label {
+  font-size: 18px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  font-family: 'Kaisei Decol', serif;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+.rc-value {
+  font-size: 28px;
+  color: var(--muted);
+  font-family: 'Zen Antique Soft', serif;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+.rc-value.set { color: var(--white); }
+.rc-arrow {
+  color: var(--gold);
+  font-size: 16px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+.rc-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 16px;
+}
+.rc-section-divider {
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212,168,67,0.7) 30%, rgba(212,168,67,0.7) 70%, transparent 100%);
+  margin: 0;
+  position: relative;
+}
+.rc-section-divider::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -16px;
+  font-size: 15px;
+  font-family: 'Kaisei Decol', serif;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  background: #ffffff;
+  padding: 3px 18px;
+  border: 1px solid rgba(212,168,67,0.5);
+  border-radius: 12px;
+  white-space: nowrap;
+}
+.rc-swap-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.2s;
+}
+.rc-swap-btn:hover { border-color: var(--gold); }
+
+/* 人数ボタン */
+.pax-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.pax-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pax-btn:hover { border-color: var(--gold); color: var(--gold); }
+.pax-btn.selected {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+.rc-group {
+  background: rgba(255,255,255,0.01);
+}
+.rc-group-place {
+  background: rgba(212,168,67,0.02);
+}
+
+/* 人数プルダウン */
+.pax-select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 22px;
+  padding: 8px 0 4px;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+.pax-select.set { color: #1a1a1a; }
+.pax-select option { background: #ffffff; color: #1a1a1a; font-size: 16px; }
+.pax-select:focus { border-color: var(--gold); }
+
+/* ── GOアプリ風カードUI ── */
+.go-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  position: relative;
+}
+.go-card-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  gap: 12px;
+  transition: background 0.2s;
+}
+.go-card-row:hover { background: var(--surface2); }
+.go-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  background: rgba(61,138,88,0.15);
+}
+.go-icon-green { background: rgba(61,138,88,0.15); }
+.go-card-body { flex: 1; min-width: 0; }
+.go-card-label {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  font-family: 'Zen Antique Soft', serif;
+  margin-bottom: 3px;
+}
+.go-card-value {
+  font-size: 15px;
+  color: var(--muted);
+  font-family: 'Zen Antique Soft', serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.06em;
+}
+.go-card-value.set { color: var(--white); }
+.go-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 16px;
+}
+.go-swap-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--gold);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.go-swap-btn:hover { border-color: var(--gold); background: var(--gold-dim); }
+.go-select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 15px;
+  padding: 4px 0;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.go-confirm-btn {
+  width: 100%;
+  background: var(--green);
+  border: none;
+  border-top: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Kaisei Decol', serif;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  padding: 14px;
+  cursor: pointer;
+}
+/* 場所入力パネル */
+.loc-panel-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #1a1a1a;
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 16px;
+  outline: none;
+  min-width: 0;
+  letter-spacing: 0.08em;
+}
+.loc-panel-input::placeholder {
+  color: #b0a898;
+  font-family: 'Zen Antique Soft', serif;
+  letter-spacing: 0.06em;
+}
+.loc-panel-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 15px;
+  color: #1a1a1a;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border2);
+  transition: background 0.2s;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+}
+.loc-panel-item:hover { background: rgba(154,114,48,0.06); }
+.loc-panel-item .loc-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 3px;
+  letter-spacing: 0.04em;
+}
+.loc-panel-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.loc-panel-icon svg { width: 18px; height: 18px; }
+.loc-panel-divider {
+  padding: 8px 20px;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  background: rgba(154,114,48,0.04);
+  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  font-family: 'Kaisei Decol', serif;
+}
+/* カレンダー */
+.cal-nav-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: #1a2d5a;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.cal-nav-btn:hover { background: rgba(26,45,90,0.08); }
+.cal-dow {
+  text-align: center;
+  font-size: 11px;
+  color: #7a7060;
+  font-family: 'Zen Antique Soft', serif;
+  padding-bottom: 4px;
+  font-weight: 600;
+}
+.cal-dow.sun { color: #c0503a; }
+.cal-dow.sat { color: #3a70a0; }
+
+/* カレンダーセル */
+.cal-cell {
+  text-align: center;
+  padding: 8px 2px;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.15s;
+  color: #2a2010;
+}
+.cal-cell:hover { background: rgba(154,114,48,0.1); color: #9a7230; }
+.cal-cell.today { border: 1px solid #9a7230; color: #9a7230; font-weight:600; }
+.cal-cell.selected { background: #1a2d5a; color: #ffffff; font-weight: 600; border-radius:50%; }
+.cal-cell.disabled { color: #ccc; cursor: default; pointer-events: none; }
+.cal-cell.sun { color: #c0503a; }
+.cal-cell.sat { color: #3a70a0; }
+.cal-cell.sun.selected, .cal-cell.sat.selected { color: #ffffff; }
+
+/* 日付カレンダー大表示 */
+.field-date-large {
+  font-size: 20px !important;
+  padding: 18px 16px !important;
+  letter-spacing: 0.08em;
+  color: var(--gold-light) !important;
+  font-family: 'Playfair Display', serif !important;
+  text-align: center;
+  cursor: pointer;
+}
+.field-date-large::-webkit-calendar-picker-indicator {
+  filter: invert(0.8) sepia(1) saturate(3) hue-rotate(10deg);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* 時刻セレクト */
+.field-time-select {
+  font-size: 18px !important;
+  padding: 16px !important;
+  text-align: center;
+  color: var(--gold-light) !important;
+  font-family: 'Playfair Display', serif !important;
+  letter-spacing: 0.05em;
+}
+
+.loc-menu-divider {
+  padding: 6px 16px;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  background: rgba(212,168,67,0.06);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  font-family: 'Zen Antique Soft', serif;
+}
+.loc-menu-recent {
+  padding: 12px 16px;
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 1px solid var(--border2);
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.loc-menu-recent:hover { background: var(--gold-dim); color: var(--gold); }
+
+/* 場所選択UI */
+.loc-selector { position: relative; }
+.loc-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--border2);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 14px;
+  color: var(--white);
+}
+.loc-display:hover { border-color: var(--gold); background: var(--surface2); }
+.loc-menu {
+  background: var(--surface2);
+  border: 1px solid var(--gold);
+  border-top: none;
+  z-index: 10;
+}
+.loc-menu-item {
+  padding: 14px 16px;
+  font-family: 'Zen Antique Soft', serif;
+  font-size: 13px;
+  color: var(--white);
+  cursor: pointer;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--border2);
+  transition: background 0.2s;
+}
+.loc-menu-item:last-child { border-bottom: none; }
+.loc-menu-item:hover { background: var(--gold-dim); color: var(--gold); }
+
+/* プリセットタグ */
+.preset-tag {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: 'Zen Antique Soft', serif;
+  letter-spacing: 0.05em;
+  border-radius: 1px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.preset-tag:hover { border-color: #3d8a58; color: #3d8a58; }
+.preset-gold:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .field-row { grid-template-columns: 1fr; }
+  .course-grid { grid-template-columns: 1fr; }
+  .step-connector { width: 28px; }
+  .hero-title { letter-spacing: 0.2em; }
+}
+</style>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoHvJXscNMeL8KLMchKj8XKJETy60nuOs&libraries=places&language=ja"></script>
+</head>
+<body>
+
+<!-- ── 言語選択モーダル ── -->
+<div id="lang-modal">
+  <div class="lang-modal-inner">
+    <div class="lang-modal-logo">RYUGA PREMIER</div>
+    <div class="lang-modal-sub">琉雅プレミア</div>
+    <div class="lang-modal-label">SELECT LANGUAGE / 言語を選択</div>
+    <div class="lang-modal-btns">
+      <button class="lang-modal-btn" onclick="setLang('ja')">
+        <span class="flag">🇯🇵</span>
+        <span class="lang-name">日本語</span>
+        <span class="lang-native">Japanese</span>
+      </button>
+      <button class="lang-modal-btn" onclick="setLang('en')">
+        <span class="flag">🇺🇸</span>
+        <span class="lang-name">English</span>
+        <span class="lang-native">英語</span>
+      </button>
+      <button class="lang-modal-btn" onclick="setLang('ko')">
+        <span class="flag">🇰🇷</span>
+        <span class="lang-name">한국어</span>
+        <span class="lang-native">韓国語</span>
+      </button>
+      <button class="lang-modal-btn" onclick="setLang('zh')">
+        <span class="flag">🇹🇼</span>
+        <span class="lang-name">繁體中文</span>
+        <span class="lang-native">中国語（繁体）</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── 右上言語切替ボタン ── -->
+<div id="lang-selector">
+  <button class="lang-btn active" id="lb-ja" onclick="setLang('ja')">🇯🇵 JA</button>
+  <button class="lang-btn" id="lb-en" onclick="setLang('en')">🇺🇸 EN</button>
+  <button class="lang-btn" id="lb-ko" onclick="setLang('ko')">🇰🇷 KO</button>
+  <button class="lang-btn" id="lb-zh" onclick="setLang('zh')">🇹🇼 ZH</button>
+</div>
+
+<div class="ryukyu-pattern"></div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ripple"></div>
+  <div class="hero-ripple"></div>
+  <div class="hero-ripple"></div>
+
+  <div class="hero-content">
+    <!-- シンプル・シックなロゴマーク -->
+    <div class="hero-kamon">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 外枠：細い正方形を45度回転（ひし形） -->
+        <rect x="18" y="18" width="64" height="64" stroke="#d4a843" stroke-width="1" transform="rotate(45 50 50)"/>
+        <!-- 内枠：さらに小さいひし形 -->
+        <rect x="28" y="28" width="44" height="44" stroke="#d4a843" stroke-width="0.5" transform="rotate(45 50 50)"/>
+        <!-- 中央：SHの頭文字イニシャル風ライン -->
+        <text x="50" y="57" text-anchor="middle" font-family="Playfair Display, serif" font-size="22" font-weight="400" fill="#d4a843" letter-spacing="1">S</text>
+      </svg>
+    </div>
+
+    <p class="hero-en" id="hero-en-text">Okinawa Premium Hire</p>
+    <h1 class="hero-title" id="hero-title-text">首里ハイヤー</h1>
+    <p class="hero-title-en">Shuri Hire</p>
+    <p class="hero-catch" id="hero-catch-text">
+      琉球の風を感じながら<br>
+      特別な旅をお届けします
+    </p>
+
+    <div class="gold-divider">
+      <div class="gold-divider-line"></div>
+      <div class="gold-divider-diamond"></div>
+      <div class="gold-divider-line"></div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#booking" class="btn-yoyaku" id="hero-cta-text">ご予約はこちら</a>
+    </div>
+  </div>
+
+  <div class="scroll-down">
+    <span class="scroll-down-text">scroll</span>
+    <div class="scroll-down-line"></div>
+  </div>
+</section>
+
+<!-- ── VIDEO SECTION ── -->
+<section class="video-section">
+  <div class="video-bg-wrap">
+    <!-- YouTube埋め込み：沖縄の海・空撮フリー動画 -->
+    <!-- ※本番時は著作権フリーのYouTube動画IDに差し替えてください -->
+    <iframe
+      id="yt-player"
+      src="https://www.youtube.com/embed/Yw2NRHcxnBc?autoplay=1&mute=1&loop=1&playlist=Yw2NRHcxnBc&controls=0&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&modestbranding=1&playsinline=1"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      title="沖縄の風景"
+    ></iframe>
+    <!-- オーバーレイ -->
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- テキストオーバーレイ -->
+  <div class="video-content">
+    <div class="video-content-inner">
+      <p class="video-label" id="video-label-text">Okinawa</p>
+      <h2 class="video-title" id="video-title-text">琉雅プレミアで<br>沖縄の真髄へ</h2>
+      <div class="gold-divider" style="opacity:1;margin:28px auto">
+        <div class="gold-divider-line"></div>
+        <div class="gold-divider-diamond"></div>
+        <div class="gold-divider-line"></div>
+      </div>
+      <p class="video-desc" id="video-desc-text">
+        エメラルドの海、珊瑚礁、亜熱帯の緑。<br>
+        上質なハイヤーで、この島の本当の美しさへ。
+      </p>
+    </div>
+  </div>
+
+  <!-- スクロール誘導 -->
+  <div class="video-scroll-hint">
+    <div class="scroll-down-line" style="height:56px"></div>
+  </div>
+</section>
+
+<!-- ── CONCEPT ── -->
+<section class="concept">
+  <p class="section-en" id="concept-en">Our Concept</p>
+  <h2 class="section-ja" id="concept-title">おもてなしの心で<br>沖縄をご案内</h2>
+  <p class="concept-text" id="concept-body">
+    琉球の歴史と自然に育まれたこの島を、<br>
+    上質なハイヤーでゆっくりとお楽しみください。<br>
+    旅行客から地元のVIPまで、<br>
+    一期一会のひとときを大切にお送りします。
+  </p>
+  <div class="gold-divider" style="opacity:1">
+    <div class="gold-divider-line"></div>
+    <div class="gold-divider-diamond"></div>
+    <div class="gold-divider-line"></div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section class="services">
+  <div style="text-align:center; margin-bottom:48px">
+    <p class="section-en" id="services-en">Services</p>
+    <h2 class="section-ja" id="services-title" style="font-size:clamp(20px,4vw,32px)">サービス一覧</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">No. 01</div>
+      <div class="service-icon-wrap"><div class="service-icon-inner">
+          <svg viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+            <path class="ci" stroke-width="2.5" d="M7,23 Q20,23 33,18 Q38,16 35,12 Q32,9 28,14 L7,23"/>
+            <path class="ci" stroke-width="2.5" d="M15,23 L5,11 Q4,9 8,9 L21,21"/>
+            <path class="ci" stroke-width="2" d="M8,23 L3,17 Q2,15 5,15 L10,21"/>
+            <path class="ci" stroke-width="2" d="M17,26 Q23,29 30,26"/>
+            <circle class="ci-fill" cx="15" cy="28" r="2.5"/>
+            <circle class="ci-fill" cx="27" cy="28" r="2.5"/>
+          </svg>
+      </div></div>
+      <p class="service-name-ja" id="svc1-name">空港送迎</p>
+      <p class="service-name-en" id="svc1-en">Airport Transfer</p>
+      <p class="service-price" id="svc1-price">¥10,000〜</p>
+      <p class="service-desc" id="svc1-desc">那覇空港から主要ホテル・<br>観光地まで快適にご案内</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">No. 02</div>
+      <div class="service-icon-wrap"><div class="service-icon-inner">
+          <svg viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+            <circle class="ci" stroke-width="2.5" cx="21" cy="19" r="9"/>
+            <line class="ci" stroke-width="2.2" x1="21" y1="6" x2="21" y2="2"/>
+            <line class="ci" stroke-width="2.2" x1="21" y1="36" x2="21" y2="40"/>
+            <line class="ci" stroke-width="2.2" x1="8" y1="19" x2="4" y2="19"/>
+            <line class="ci" stroke-width="2.2" x1="34" y1="19" x2="38" y2="19"/>
+            <line class="ci" stroke-width="2" x1="12" y1="10" x2="9" y2="7"/>
+            <line class="ci" stroke-width="2" x1="30" y1="28" x2="33" y2="31"/>
+            <line class="ci" stroke-width="2" x1="30" y1="10" x2="33" y2="7"/>
+            <line class="ci" stroke-width="2" x1="12" y1="28" x2="9" y2="31"/>
+          </svg>
+      </div></div>
+      <p class="service-name-ja" id="svc2-name">観光チャーター</p>
+      <p class="service-name-en" id="svc2-en">Sightseeing Charter</p>
+      <p class="service-price" id="svc2-price">¥25,000〜</p>
+      <p class="service-desc" id="svc2-desc">沖縄の絶景をプライベートに<br>半日・1日プランあり</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">No. 03</div>
+      <div class="service-icon-wrap"><div class="service-icon-inner">
+          <svg viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+            <path class="ci" stroke-width="2.5" d="M6,35 L6,21 L14,30 L21,12 L28,30 L36,21 L36,35"/>
+            <line class="ci" stroke-width="2.5" x1="6" y1="35" x2="36" y2="35"/>
+            <circle class="ci-fill" cx="13" cy="34" r="2.5"/>
+            <circle class="ci-fill" cx="21" cy="34" r="2.5"/>
+            <circle class="ci-fill" cx="29" cy="34" r="2.5"/>
+            <path class="ci-fill" d="M21,7 L22.8,12.5 L28.5,12.5 L24,16 L25.8,21.5 L21,18 L16.2,21.5 L18,16 L13.5,12.5 L19.2,12.5 Z"/>
+          </svg>
+      </div></div>
+      <p class="service-name-ja" id="svc3-name">VIP・法人送迎</p>
+      <p class="service-name-en" id="svc3-en">VIP & Corporate</p>
+      <p class="service-price" id="svc3-price">お見積り</p>
+      <p class="service-desc" id="svc3-desc">経営者・ビジネスゲスト専用<br>月額契約プランもご用意</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKING ── -->
+<section id="booking">
+  <div class="booking-inner">
+    <div style="text-align:center; margin-bottom:56px">
+      <p class="section-en">Reservation</p>
+      <h2 class="section-ja" id="booking-title-text" style="font-size:clamp(24px,4vw,36px)">ご予約</h2>
+    </div>
+
+    <!-- ステップ -->
+    <div class="step-wrap">
+      <div class="step-node">
+        <div class="step-circle active" id="sc-1">1</div>
+        <div class="step-label active" id="sl-1">コース</div>
+      </div>
+      <div class="step-connector" id="scon-1"></div>
+      <div class="step-node">
+        <div class="step-circle" id="sc-2">2</div>
+        <div class="step-label" id="sl-2">日時・場所</div>
+      </div>
+      <div class="step-connector" id="scon-2"></div>
+      <div class="step-node">
+        <div class="step-circle" id="sc-3">3</div>
+        <div class="step-label" id="sl-3">お客様情報</div>
+      </div>
+      <div class="step-connector" id="scon-3"></div>
+      <div class="step-node">
+        <div class="step-circle" id="sc-4">4</div>
+        <div class="step-label" id="sl-4">確認</div>
+      </div>
+      <div class="step-connector" id="scon-4"></div>
+      <div class="step-node">
+        <div class="step-circle" id="sc-5">5</div>
+        <div class="step-label" id="sl-5">決済</div>
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div class="form-step active" id="fs-1">
+      <div class="field">
+        <label class="field-label" id="lbl-select-course">コースをお選びください<span class="field-required">必須</span></label>
+        <div class="course-grid">
+          <div class="course-card" onclick="selectCourse(this,'空港送迎','¥10,000〜')">
+            <div class="course-check">✓</div>
+            <div class="course-icon-wrap"><div class="course-icon-inner">
+              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <path class="ci" stroke-width="2.2" d="M6,20 Q18,20 28,16 Q32,14 30,11 Q28,9 25,13 L6,20"/>
+                <path class="ci" stroke-width="2.2" d="M13,20 L5,10 Q4,8 7,8 L18,18"/>
+                <path class="ci" stroke-width="1.8" d="M7,20 L3,15 Q2,13 5,13 L9,18"/>
+                <path class="ci" stroke-width="1.8" d="M14,22 Q20,25 26,22"/>
+                <circle class="ci-fill" cx="13" cy="24" r="2"/>
+                <circle class="ci-fill" cx="23" cy="24" r="2"/>
+              </svg>
+            </div></div>
+            <p class="course-name-ja" id="c1-name">空港送迎</p>
+            <p class="course-price" id="c1-price">¥10,000〜</p>
+            <p class="course-desc" id="c1-desc">那覇空港⇔各地<br>片道送迎</p>
+          </div>
+          <div class="course-card" onclick="selectCourse(this,'観光チャーター（半日）','¥25,000〜')">
+            <div class="course-check">✓</div>
+            <div class="course-icon-wrap"><div class="course-icon-inner">
+              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <path class="ci" stroke-width="2.2" d="M5,22 A13,13 0 0,1 31,22"/>
+                <line class="ci" stroke-width="1.8" x1="2" y1="22" x2="34" y2="22"/>
+                <line class="ci" stroke-width="2" x1="18" y1="8" x2="18" y2="4"/>
+                <line class="ci" stroke-width="1.8" x1="27" y1="11" x2="30" y2="8"/>
+                <line class="ci" stroke-width="1.8" x1="9" y1="11" x2="6" y2="8"/>
+                <circle class="ci" stroke-width="1.8" cx="18" cy="30" r="6"/>
+                <line class="ci" stroke-width="2" x1="18" y1="30" x2="18" y2="25"/>
+                <line class="ci" stroke-width="1.8" x1="18" y1="30" x2="22" y2="33"/>
+                <circle class="ci-fill" cx="18" cy="30" r="1.2"/>
+              </svg>
+            </div></div>
+            <p class="course-name-ja" id="c2-name">観光チャーター（半日）</p>
+            <p class="course-price" id="c2-price">¥25,000〜</p>
+            <p class="course-desc" id="c2-desc">最大4時間<br>お好きなルート</p>
+          </div>
+          <div class="course-card" onclick="selectCourse(this,'観光チャーター（1日）','¥45,000〜')">
+            <div class="course-check">✓</div>
+            <div class="course-icon-wrap"><div class="course-icon-inner">
+              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <circle class="ci" stroke-width="2.2" cx="18" cy="16" r="7"/>
+                <line class="ci" stroke-width="2" x1="18" y1="5" x2="18" y2="2"/>
+                <line class="ci" stroke-width="2" x1="18" y1="30" x2="18" y2="33"/>
+                <line class="ci" stroke-width="2" x1="7" y1="16" x2="4" y2="16"/>
+                <line class="ci" stroke-width="2" x1="29" y1="16" x2="32" y2="16"/>
+                <line class="ci" stroke-width="1.8" x1="10" y1="8" x2="8" y2="6"/>
+                <line class="ci" stroke-width="1.8" x1="26" y1="24" x2="28" y2="26"/>
+                <line class="ci" stroke-width="1.8" x1="26" y1="8" x2="28" y2="6"/>
+                <line class="ci" stroke-width="1.8" x1="10" y1="24" x2="8" y2="26"/>
+                <line class="ci" stroke-width="1.8" x1="2" y1="33" x2="34" y2="33"/>
+                <path class="ci" stroke-width="1.8" d="M10,33 Q18,27 26,33"/>
+              </svg>
+            </div></div>
+            <p class="course-name-ja" id="c3-name">観光チャーター（1日）</p>
+            <p class="course-price" id="c3-price">¥45,000〜</p>
+            <p class="course-desc" id="c3-desc">最大8時間<br>北部・南部エリア</p>
+          </div>
+          <div class="course-card" onclick="selectCourse(this,'VIP・法人送迎','お見積り')">
+            <div class="course-check">✓</div>
+            <div class="course-icon-wrap"><div class="course-icon-inner">
+              <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <path class="ci" stroke-width="2.2" d="M5,30 L5,18 L12,26 L18,10 L24,26 L31,18 L31,30"/>
+                <line class="ci" stroke-width="2.2" x1="5" y1="30" x2="31" y2="30"/>
+                <circle class="ci-fill" cx="11" cy="29" r="2.2"/>
+                <circle class="ci-fill" cx="18" cy="29" r="2.2"/>
+                <circle class="ci-fill" cx="25" cy="29" r="2.2"/>
+                <path class="ci-fill" d="M18,6 L19.5,10.5 L24,10.5 L20.5,13.2 L22,17.5 L18,15 L14,17.5 L15.5,13.2 L12,10.5 L16.5,10.5 Z"/>
+              </svg>
+            </div></div>
+            <p class="course-name-ja" id="c4-name">VIP・法人送迎</p>
+            <p class="course-price" id="c4-price">お見積り</p>
+            <p class="course-desc" id="c4-desc">ビジネス・会食<br>月額契約応相談</p>
+          </div>
+        </div>
+        <div class="field-error" id="err-1"></div>
+      </div>
+      <button class="btn-next" onclick="go(1)">次へ進む</button>
+    </div>
+
+    <!-- Step 2 : 角丸1枚カード -->
+    <div class="form-step" id="fs-2">
+
+      <!-- カード①：日時 -->
+      <div class="round-card" style="margin-bottom:12px;">
+
+        <!-- 乗車日 -->
+        <div class="rc-row" onclick="toggleCalendar()" id="date-display-btn">
+          <div class="rc-icon rc-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3d8a58" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="17" rx="2"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <rect x="7" y="13" width="3" height="3" rx="0.5" fill="#3d8a58" stroke="none"/>
+              <rect x="13" y="13" width="3" height="3" rx="0.5" fill="#3d8a58" stroke="none"/>
+            </svg>
+          </div>
+          <div class="rc-body">
+            <div class="rc-label" id="label-date">乗車日</div>
+            <div class="rc-value" id="date-display-text">日付を選択</div>
+          </div>
+          <span id="date-picker-arrow" class="rc-arrow">▼</span>
+        </div>
+        <!-- カレンダー -->
+        <div id="cal-panel" style="display:none;padding:16px;border-top:1px solid var(--border);">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <button type="button" onclick="calMove(-1)" class="cal-nav-btn">‹</button>
+            <span id="cal-title" style="font-family:'Kaisei Decol',serif;font-size:15px;color:var(--white);letter-spacing:0.15em;"></span>
+            <button type="button" onclick="calMove(1)" class="cal-nav-btn">›</button>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:6px;">
+            <div class="cal-dow sun">日</div><div class="cal-dow">月</div><div class="cal-dow">火</div>
+            <div class="cal-dow">水</div><div class="cal-dow">木</div><div class="cal-dow">金</div>
+            <div class="cal-dow sat">土</div>
+          </div>
+          <div id="cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;"></div>
+        </div>
+
+        <div class="rc-divider"></div>
+
+        <!-- 乗車時刻 -->
+        <div class="rc-row" onclick="toggleTimePicker()" id="time-display-btn">
+          <div class="rc-icon rc-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3d8a58" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9"/>
+              <line x1="12" y1="7" x2="12" y2="12"/>
+              <line x1="12" y1="12" x2="16" y2="14.5"/>
+              <circle cx="12" cy="12" r="1.2" fill="#3d8a58" stroke="none"/>
+            </svg>
+          </div>
+          <div class="rc-body">
+            <div class="rc-label" id="label-time">乗車時刻</div>
+            <div class="rc-value" id="time-display-text">時刻を選択</div>
+          </div>
+          <span id="time-picker-arrow" class="rc-arrow">▼</span>
+        </div>
+        <!-- 時刻ドラム -->
+        <div id="time-picker-panel" style="display:none;border-top:1px solid var(--border);">
+          <div style="display:flex;align-items:center;justify-content:center;gap:12px;padding:16px;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+              <div style="font-size:10px;color:var(--gold);letter-spacing:0.2em;font-family:'Zen Antique Soft',serif;">時</div>
+              <div class="time-drum" id="drum-hour"></div>
+            </div>
+            <div style="font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);margin-top:18px;flex-shrink:0;">:</div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+              <div style="font-size:10px;color:var(--gold);letter-spacing:0.2em;font-family:'Zen Antique Soft',serif;">分</div>
+              <div class="time-drum" id="drum-min"></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /カード① 日時 -->
+
+      <!-- カード②：場所 -->
+      <div class="round-card" style="margin-bottom:12px;">
+
+        <!-- 乗車場所 -->
+        <div class="rc-row" onclick="openLocPanel('pickup')" id="go-row-pickup">
+          <div class="rc-icon rc-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3d8a58" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.7 2 6 4.7 6 8c0 4.5 6 13 6 13s6-8.5 6-13c0-3.3-2.7-6-6-6z"/>
+              <circle cx="12" cy="8" r="2.2" fill="#3d8a58" stroke="none"/>
+            </svg>
+          </div>
+          <div class="rc-body">
+            <div class="rc-label" id="label-pickup">乗車場所</div>
+            <div class="rc-value" id="loc-text-pickup">タップして入力</div>
+          </div>
+          <span class="rc-arrow">›</span>
+        </div>
+
+        <!-- 入れ替え -->
+        <div style="display:flex;justify-content:center;margin:2px 0;position:relative;">
+          <div class="rc-divider" style="margin:0;position:absolute;top:50%;width:100%;"></div>
+          <button type="button" onclick="swapLocsNew()" class="rc-swap-btn">⇅</button>
+        </div>
+
+        <!-- 目的地 -->
+        <div class="rc-row" onclick="openLocPanel('dest')" id="go-row-dest">
+          <div class="rc-icon" style="background:rgba(212,168,67,0.12);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="3" x2="5" y2="21"/>
+              <path d="M5 4h12l-3 4 3 4H5" fill="rgba(212,168,67,0.15)" stroke="#d4a843"/>
+            </svg>
+          </div>
+          <div class="rc-body">
+            <div class="rc-label" id="label-dest">目的地</div>
+            <div class="rc-value" id="loc-text-dest">タップして入力</div>
+          </div>
+          <span class="rc-arrow">›</span>
+        </div>
+
+      </div><!-- /カード② 場所 -->
+
+      <!-- カード③：人数 -->
+      <div class="round-card" style="margin-bottom:16px;">
+        <div class="rc-row" style="cursor:default;">
+          <div class="rc-icon rc-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3d8a58" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="7" r="3"/>
+              <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+              <circle cx="17" cy="7" r="2.2"/>
+              <path d="M19 20c0-2.5-1.6-4.6-3.8-5.4"/>
+            </svg>
+          </div>
+          <div class="rc-body" style="flex:1;">
+            <div class="rc-label" id="label-pax">ご乗車人数<span class="field-required" style="margin-left:4px;">必須</span></div>
+            <select class="pax-select" id="f-pax" onchange="this.classList.add('set')">
+              <option value="">お選びください</option>
+              <option value="1名">1名</option>
+              <option value="2名">2名</option>
+              <option value="3名">3名</option>
+              <option value="4名">4名</option>
+              <option value="5名">5名</option>
+              <option value="6名">6名</option>
+            </select>
+          </div>
+        </div>
+      </div><!-- /カード③ 人数 -->
+
+      <!-- 場所入力パネル（固定オーバーレイ） -->
+      <div id="loc-panel-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:9000;" onclick="closeLocPanel()"></div>
+
+      <!-- 場所選択パネル（リストのみ・マップなし） -->
+      <div id="loc-panel" style="display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:640px;max-height:55vh;background:#ffffff;border-radius:16px 16px 0 0;overflow:hidden;box-shadow:0 -4px 32px rgba(0,0,0,0.15);z-index:9001;flex-direction:column;">
+        <!-- ドラッグバー -->
+        <div style="display:flex;justify-content:center;padding:10px 0 4px;background:#faf8f4;flex-shrink:0;">
+          <div style="width:36px;height:4px;border-radius:2px;background:var(--border);"></div>
+        </div>
+        <div style="padding:10px 20px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;background:#faf8f4;flex-shrink:0;">
+          <div id="loc-panel-dot" style="width:10px;height:10px;border-radius:50%;background:#3d8a58;flex-shrink:0;box-shadow:0 0 0 3px rgba(61,138,88,0.15);"></div>
+          <input type="text" id="loc-panel-input" class="loc-panel-input" placeholder="場所名・住所を入力" oninput="onLocPanelInput()" autocomplete="off">
+          <button type="button" onclick="closeLocPanel()" style="background:rgba(0,0,0,0.05);border:none;color:#888;font-size:14px;cursor:pointer;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;">✕</button>
+        </div>
+        <!-- リスト（スクロール） -->
+        <div style="overflow-y:auto;flex:1;min-height:0;">
+          <!-- GPS -->
+          <div class="loc-panel-item" onclick="locPanelGPS()" style="background:rgba(61,138,88,0.03);">
+            <div class="loc-panel-icon" style="background:rgba(61,138,88,0.1);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#3d8a58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8" stroke-dasharray="2 2"/>
+                <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+                <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+              </svg>
+            </div>
+            <div><div style="color:#2d6e45;font-weight:500;" id="gps-label">現在地を使用</div></div>
+          </div>
+          <div id="loc-panel-suggest"></div>
+          <div id="loc-panel-recent"></div>
+          <div id="loc-panel-presets"></div>
+        </div>
+      </div>
+
+      <!-- Google Maps 全画面オーバーレイ -->
+      <div id="loc-map-fixed" style="display:none;position:fixed;inset:0;z-index:9010;">
+        <!-- Google Maps APIマップ -->
+        <div id="gmap-container" style="width:100%;height:100%;"></div>
+        <!-- 検索バー（上部） -->
+        <div style="position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:20;width:90%;max-width:480px;">
+          <div style="background:#fff;border-radius:12px;padding:10px 16px;box-shadow:0 4px 20px rgba(0,0,0,0.3);display:flex;align-items:center;gap:10px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a7230" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input id="gmap-search-input" type="text" style="flex:1;border:none;font-family:'Zen Antique Soft',serif;font-size:15px;color:#1a1a1a;outline:none;background:transparent;letter-spacing:0.06em;" placeholder="場所名・住所を検索">
+            <button onclick="gmapSearch()" style="background:#1a2d5a;color:#fff;border:none;border-radius:6px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:'Kaisei Decol',serif;letter-spacing:0.1em;">検索</button>
+          </div>
+        </div>
+        <!-- 中央ピン -->
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-100%);z-index:15;pointer-events:none;font-size:36px;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4));">📍</div>
+        <!-- 操作パネル（下部） -->
+        <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:20;width:90%;max-width:480px;">
+          <div style="background:#fff;border-radius:12px;padding:12px 16px;margin-bottom:10px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+            <div style="font-size:10px;color:#9a7230;font-family:'Kaisei Decol',serif;letter-spacing:0.2em;margin-bottom:6px;">選 択 中 の 場 所</div>
+            <div id="gmap-selected-name" style="font-family:'Zen Antique Soft',serif;font-size:15px;color:#1a1a1a;letter-spacing:0.06em;min-height:22px;">地図を動かして場所を指定</div>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button onclick="useGmapPlace()" style="flex:1;background:#1a2d5a;color:#fff;border:none;font-family:'Kaisei Decol',serif;font-size:15px;letter-spacing:0.2em;padding:15px;border-radius:8px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.3);">✓ この場所を使用</button>
+            <button onclick="closeMapOverlay()" style="background:rgba(255,255,255,0.92);color:#333;border:none;font-family:'Zen Antique Soft',serif;font-size:13px;letter-spacing:0.1em;padding:15px 20px;border-radius:8px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.2);">← 戻る</button>
+          </div>
+        </div>
+      </div>
+      <!-- マップ非表示用ダミー -->
+      <div id="loc-panel-map" style="display:none;"></div>
+
+      <!-- hidden inputs -->
+      <input type="hidden" id="f-pickup">
+      <input type="hidden" id="f-dest">
+      <input type="hidden" id="f-date">
+      <input type="hidden" id="f-time" value="">
+
+      <div class="field-error" id="err-2" style="margin:12px 0 4px;"></div>
+      <button class="btn-next" onclick="go(2)" style="margin-top:16px;">次へ進む</button>
+      <button class="btn-back" onclick="back(2)">← 戻る</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="form-step" id="fs-3">
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label" id="lbl-name">お名前<span class="field-required">必須</span></label>
+          <input type="text" class="field-input" id="f-name" placeholder="山田 太郎">
+        </div>
+        <div class="field">
+          <label class="field-label" id="lbl-kana">フリガナ</label>
+          <input type="text" class="field-input" id="f-kana" placeholder="ヤマダ タロウ">
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label" id="lbl-phone">電話番号<span class="field-required">必須</span></label>
+        <input type="tel" class="field-input" id="f-phone" placeholder="090-0000-0000">
+      </div>
+      <div class="field">
+        <label class="field-label" id="lbl-email">メールアドレス<span class="field-required">必須</span></label>
+        <input type="email" class="field-input" id="f-email" placeholder="example@email.com">
+      </div>
+      <div class="field">
+        <label class="field-label" id="lbl-notes">ご要望・備考</label>
+        <textarea class="field-textarea" id="f-notes" placeholder="チャイルドシート希望・荷物多め・その他ご要望など"></textarea>
+      </div>
+      <div class="field-error" id="err-3"></div>
+      <button class="btn-next" onclick="go(3)" id="btn-to-confirm">確認画面へ</button>
+      <button class="btn-back" onclick="back(3)" id="btn-back-3">← 戻る</button>
+    </div>
+
+    <!-- Step 4: 確認 -->
+    <div class="form-step" id="fs-4">
+      <div class="confirm-block">
+        <div class="confirm-block-head" id="chead-booking">ご予約内容</div>
+        <div class="confirm-row"><span class="confirm-key" id="ckey-course">コース</span><span class="confirm-val" id="c-course">-</span></div>
+        <div class="confirm-row"><span class="confirm-key" id="ckey-datetime">日時</span><span class="confirm-val" id="c-datetime">-</span></div>
+        <div class="confirm-row"><span class="confirm-key" id="ckey-pickup">乗車場所</span><span class="confirm-val" id="c-pickup">-</span></div>
+        <div class="confirm-row"><span class="confirm-key" id="ckey-dest">目的地</span><span class="confirm-val" id="c-dest">-</span></div>
+        <div class="confirm-row"><span class="confirm-key" id="ckey-pax">人数</span><span class="confirm-val" id="c-pax">-</span></div>
+      </div>
+      <div class="confirm-block">
+        <div class="confirm-block-head" id="chead-customer">お客様情報</div>
+        <div class="confirm-row"><span class="confirm-key" id="ckey-name">お名前</span><span class="confirm-val" id="c-name">-</span></div>
+        <div class="confirm-row"><span class="confirm-key" id="ckey-phone">電話番号</span><span class="confirm-val" id="c-phone">-</span></div>
+        <div class="confirm-row"><span class="confirm-key" id="ckey-email">メール</span><span class="confirm-val" id="c-email">-</span></div>
+        <div class="confirm-row" id="c-notes-row"><span class="confirm-key" id="ckey-notes">ご要望</span><span class="confirm-val" id="c-notes">-</span></div>
+      </div>
+      <div class="notice-box" id="notice-confirm">
+        ご予約確定後、担当者よりお電話またはメールにてご確認のご連絡をさしあげます。<br>
+        キャンセルは乗車24時間前までは無料です。
+      </div>
+      <button class="btn-next" onclick="goToPayment()" id="btn-to-payment">お支払いへ進む</button>
+      <button class="btn-back" onclick="back(4)" id="btn-back-4">← 内容を修正する</button>
+    </div>
+
+    <!-- Step 5: 決済 -->
+    <div class="form-step" id="fs-5">
+
+      <!-- お支払い方法選択 -->
+      <div class="field">
+        <label class="field-label" id="lbl-pay-method">お支払い方法をお選びください<span class="field-required">必須</span></label>
+
+        <div class="pay-grid" id="pay-grid">
+
+          <div class="pay-card" onclick="selectPay(this,'card')">
+            <div class="pay-check">✓</div>
+            <div class="pay-icon-wrap"><div class="pay-icon-inner">💳</div></div>
+            <p class="pay-name-ja">クレジット・デビット</p>
+            <p class="pay-name-en">VISA / MC / JCB / AMEX</p>
+          </div>
+
+          <div class="pay-card" onclick="selectPay(this,'paypay')">
+            <div class="pay-check">✓</div>
+            <div class="pay-icon-wrap"><div class="pay-icon-inner">📱</div></div>
+            <p class="pay-name-ja">PayPay</p>
+            <p class="pay-name-en">QRコード決済</p>
+          </div>
+
+          <div class="pay-card" onclick="selectPay(this,'linepay')">
+            <div class="pay-check">✓</div>
+            <div class="pay-icon-wrap"><div class="pay-icon-inner">💚</div></div>
+            <p class="pay-name-ja">LINE Pay</p>
+            <p class="pay-name-en">QRコード決済</p>
+          </div>
+
+          <div class="pay-card" onclick="selectPay(this,'merpay')">
+            <div class="pay-check">✓</div>
+            <div class="pay-icon-wrap"><div class="pay-icon-inner">🔵</div></div>
+            <p class="pay-name-ja">メルペイ</p>
+            <p class="pay-name-en">QRコード決済</p>
+          </div>
+
+          <div class="pay-card" onclick="selectPay(this,'aupay')">
+            <div class="pay-check">✓</div>
+            <div class="pay-icon-wrap"><div class="pay-icon-inner">🟠</div></div>
+            <p class="pay-name-ja">au PAY</p>
+            <p class="pay-name-en">QRコード決済</p>
+          </div>
+
+          <div class="pay-card" onclick="selectPay(this,'dbarai')">
+            <div class="pay-check">✓</div>
+            <div class="pay-icon-wrap"><div class="pay-icon-inner">🟣</div></div>
+            <p class="pay-name-ja">d払い</p>
+            <p class="pay-name-en">QRコード決済</p>
+          </div>
+
+          <div class="pay-card" onclick="selectPay(this,'rakuten')">
+            <div class="pay-check">✓</div>
+            <div class="pay-icon-wrap"><div class="pay-icon-inner">🔴</div></div>
+            <p class="pay-name-ja">楽天ペイ</p>
+            <p class="pay-name-en">QRコード決済</p>
+          </div>
+
+          <div class="pay-card" onclick="selectPay(this,'ic')">
+            <div class="pay-check">✓</div>
+            <div class="pay-icon-wrap"><div class="pay-icon-inner">🚃</div></div>
+            <p class="pay-name-ja">交通系 IC</p>
+            <p class="pay-name-en">Suica / ICOCA / nimoca</p>
+          </div>
+
+          <div class="pay-card" onclick="selectPay(this,'cash')">
+            <div class="pay-check">✓</div>
+            <div class="pay-icon-wrap"><div class="pay-icon-inner">💴</div></div>
+            <p class="pay-name-ja">現金</p>
+            <p class="pay-name-en">当日乗車時に精算</p>
+          </div>
+
+          <div class="pay-card" onclick="selectPay(this,'invoice')">
+            <div class="pay-check">✓</div>
+            <div class="pay-icon-wrap"><div class="pay-icon-inner">🏢</div></div>
+            <p class="pay-name-ja">請求書払い</p>
+            <p class="pay-name-en">法人・掛け払い</p>
+          </div>
+
+        </div>
+        <div class="field-error" id="err-5"></div>
+      </div>
+
+      <!-- カード入力フォーム -->
+      <div id="card-form-wrap" style="display:none;">
+        <div class="pay-visual-card" id="visual-card">
+          <div class="pvc-chip"></div>
+          <div class="pvc-number" id="vc-num">•••• •••• •••• ••••</div>
+          <div class="pvc-bottom">
+            <div>
+              <div class="pvc-label">CARD HOLDER</div>
+              <div class="pvc-val" id="vc-name">YOUR NAME</div>
+            </div>
+            <div>
+              <div class="pvc-label">EXPIRES</div>
+              <div class="pvc-val" id="vc-exp">MM / YY</div>
+            </div>
+            <div class="pvc-brand">VISA</div>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label">カード番号</label>
+          <input type="text" class="field-input" id="p-cardnum" placeholder="1234 5678 9012 3456" maxlength="19" oninput="fmtCard(this);updVC()">
+        </div>
+        <div class="field">
+          <label class="field-label">カード名義（ローマ字）</label>
+          <input type="text" class="field-input" id="p-cardname" placeholder="TARO YAMADA" oninput="updVC()">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label">有効期限</label>
+            <input type="text" class="field-input" id="p-cardexp" placeholder="MM / YY" maxlength="7" oninput="fmtExp(this);updVC()">
+          </div>
+          <div class="field">
+            <label class="field-label">セキュリティコード</label>
+            <input type="text" class="field-input" id="p-cardcvc" placeholder="•••" maxlength="4" oninput="this.value=this.value.replace(/\D/g,'')">
+          </div>
+        </div>
+      </div>
+
+      <!-- QRモック -->
+      <div id="qr-wrap" style="display:none;">
+        <div class="pay-alt-msg">
+          <div class="pay-alt-qr">QR</div>
+          <p class="pay-alt-title" id="qr-title">PayPay</p>
+          <p class="pay-alt-sub">アプリでQRコードをスキャンしてお支払いください<br><span style="font-size:10px;color:var(--muted);">（これはモックです。実際の決済は行われません）</span></p>
+        </div>
+      </div>
+
+      <!-- IC -->
+      <div id="ic-wrap" style="display:none;">
+        <div class="pay-alt-msg">
+          <div class="pay-alt-icon">🚃</div>
+          <p class="pay-alt-title">交通系 IC カード</p>
+          <p class="pay-alt-sub">乗車時にカードリーダーへタッチしてください。<br>Suica・ICOCA・nimoca・Kitaca等に対応。</p>
+        </div>
+      </div>
+
+      <!-- 現金 -->
+      <div id="cash-wrap" style="display:none;">
+        <div class="pay-alt-msg">
+          <div class="pay-alt-icon">💴</div>
+          <p class="pay-alt-title">現金払い</p>
+          <p class="pay-alt-sub">降車時にドライバーへお支払いください。<br>お釣りのご用意がございます。</p>
+        </div>
+      </div>
+
+      <!-- 請求書 -->
+      <div id="invoice-wrap" style="display:none;">
+        <div class="pay-alt-msg">
+          <div class="pay-alt-icon">🏢</div>
+          <p class="pay-alt-title">請求書払い（法人）</p>
+          <p class="pay-alt-sub">月末締め翌月払いに対応しております。<br>ご予約後、担当者よりご連絡いたします。</p>
+        </div>
+      </div>
+
+      <div class="confirm-block" style="margin-top:24px;">
+        <div class="confirm-block-head" id="chead-payment">お支払い金額</div>
+        <div class="confirm-row">
+          <span class="confirm-key" id="ckey-pay-course">コース</span>
+          <span class="confirm-val" id="pay-course-disp">—</span>
+        </div>
+        <div class="confirm-row" style="border-top:1px solid var(--gold);">
+          <span class="confirm-key" id="ckey-total" style="color:var(--gold);letter-spacing:0.2em;">合計（税込）</span>
+          <span class="confirm-val" style="font-family:'Playfair Display',serif;font-size:22px;color:var(--gold-light);" id="pay-total-disp">—</span>
+        </div>
+      </div>
+
+      <div class="notice-box" style="margin-top:16px;" id="notice-mock">
+        🔒 このページはモックデモです。実際の決済・課金は一切行われません。
+      </div>
+
+      <button class="btn-next" id="pay-submit-btn" onclick="confirmPaymentToGAS()">予約を確定する</button>
+      <button class="btn-back" onclick="back(5)" id="btn-back-5">← 確認画面へ戻る</button>
+    </div>
+
+    <!-- 完了 -->
+    <div class="form-step" id="fs-complete">
+      <div class="complete-wrap">
+        <div class="complete-kamon">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="18" y="18" width="64" height="64" stroke="#d4a843" stroke-width="1" transform="rotate(45 50 50)"/>
+            <rect x="28" y="28" width="44" height="44" stroke="#d4a843" stroke-width="0.5" transform="rotate(45 50 50)"/>
+            <path d="M34 50 L45 62 L67 38" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="complete-title" id="complete-title">御予約ありがとうございます</h3>
+        <p class="complete-msg" id="complete-msg">
+          ご予約を承りました。<br>
+          担当者より24時間以内にご連絡いたします。<br>
+          ご不明な点はお電話にてお気軽にお問い合わせください。
+        </p>
+        <div class="booking-num-wrap">
+          <p class="booking-num-label" id="complete-num-label">Booking Number</p>
+          <p class="booking-num-value" id="booking-num">SH-000000</p>
+        </div>
+        <button class="btn-reset" onclick="reset()" id="btn-reset">新しい予約をする</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-kamon">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="18" y="18" width="64" height="64" stroke="#d4a843" stroke-width="1" transform="rotate(45 50 50)"/>
+      <rect x="28" y="28" width="44" height="44" stroke="#d4a843" stroke-width="0.5" transform="rotate(45 50 50)"/>
+      <text x="50" y="57" text-anchor="middle" font-family="Playfair Display, serif" font-size="22" font-weight="400" fill="#d4a843">S</text>
+    </svg>
+  </div>
+  <p class="footer-name-ja" id="footer-name-ja">首里ハイヤー</p>
+  <p class="footer-name-en" id="footer-name-en">Shuri Hire</p>
+  <p class="footer-info" id="footer-info">
+    沖縄県　首里ハイヤー株式会社（仮）<br>
+    TEL: 098-000-0000　受付時間 8:00〜20:00<br>
+    一般乗用旅客自動車運送事業　許可番号：申請中
+  </p>
+</footer>
+
+<script>
+// 人数ワンタップ選択
+function selectPax(btn, val) {
+  document.querySelectorAll('.pax-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('f-pax').value = val;
+}
+
+// ── 多言語対応 ──────────────────────────────────────────
+
+const I18N = {
+  ja: {
+    videoLabel:'Okinawa',
+    videoTitle:'琉雅プレミアで<br>沖縄の真髄へ',
+    videoDesc:'エメラルドの海、珊瑚礁、亜熱帯の緑。<br>上質なハイヤーで、この島の本当の美しさへ。',
+    conceptEn:'Our Concept',
+    conceptTitle:'おもてなしの心で<br>沖縄をご案内',
+    conceptBody:'琉球の歴史と自然に育まれたこの島を、<br>上質なハイヤーでゆっくりとお楽しみください。<br>旅行客から地元のVIPまで、<br>一期一会のひとときを大切にお送りします。',
+    servicesEn:'Services',servicesTitle:'サービス一覧',
+    svc1Name:'空港送迎',svc1Desc:'那覇空港から主要ホテル・<br>観光地まで快適にご案内',svc1Price:'¥10,000〜',
+    svc2Name:'観光チャーター',svc2Desc:'沖縄の絶景をプライベートに<br>半日・1日プランあり',svc2Price:'¥25,000〜',
+    svc3Name:'VIP・法人送迎',svc3Desc:'経営者・ビジネスゲスト専用<br>月額契約プランもご用意',svc3Price:'お見積り',
+    footerNameJa:'首里ハイヤー',footerNameEn:'Shuri Hire',
+    footerInfo:'沖縄県　首里ハイヤー株式会社（仮）<br>TEL: 098-000-0000　受付時間 8:00〜20:00<br>一般乗用旅客自動車運送事業　許可番号：申請中',
+    heroEn:'Okinawa Premium Hire',heroTitle:'首里ハイヤー',
+    heroCatch:'琉球の風を感じながら<br>特別な旅をお届けします',
+    heroCta:'ご予約はこちら',bookingTitle:'ご予約',
+    stepCourse:'コース',stepDatetime:'日時・場所',stepCustomer:'お客様情報',stepConfirm:'確認',stepPayment:'決済',
+    labelDate:'乗車日',labelTime:'乗車時刻',labelPickup:'乗車場所',labelDest:'目的地',labelPax:'ご乗車人数',
+    placeholderDate:'日付を選択',placeholderTime:'時刻を選択',placeholderLoc:'タップして入力',
+    sectionPlace:'乗 車 場 所',btnNext:'次へ進む',btnBack:'← 戻る',btnConfirm:'決　定',required:'必須',
+    btnGps:'📍 現在地を使用',errAll:'すべての項目を入力してください',errEmail:'メールアドレスの形式が正しくありません',errPay:'お支払い方法をお選びください',
+    lblName:'お名前',lblKana:'フリガナ',lblPhone:'電話番号',lblEmail:'メールアドレス',lblNotes:'ご要望・備考',
+    phName:'山田 太郎',phKana:'ヤマダ タロウ',phPhone:'090-0000-0000',phEmail:'example@email.com',
+    phNotes:'チャイルドシート希望・荷物多め・その他ご要望など',
+    btnToConfirm:'確認画面へ',
+    cheadBooking:'ご予約内容',cheadCustomer:'お客様情報',
+    ckeyCourseLbl:'コース',ckeyDatetime:'日時',ckeyPickup:'乗車場所',ckeyDest:'目的地',ckeyPax:'人数',
+    ckeyName:'お名前',ckeyPhone:'電話番号',ckeyEmail:'メール',ckeyNotes:'ご要望',
+    noticeConfirm:'ご予約確定後、担当者よりお電話またはメールにてご確認のご連絡をさしあげます。<br>キャンセルは乗車24時間前までは無料です。',
+    btnToPayment:'お支払いへ進む',btnBackEdit:'← 内容を修正する',
+    cheadPayment:'お支払い金額',ckeyPayCourse:'コース',ckeyTotal:'合計（税込）',
+    noticeMock:'🔒 このページはモックデモです。実際の決済・課金は一切行われません。',
+    btnSubmit:'予約を確定する',btnBackConfirm:'← 確認画面へ戻る',
+    lblPayMethod:'お支払い方法をお選びください',
+    lblCardNum:'カード番号',lblCardName:'カード名義（ローマ字）',lblExpiry:'有効期限',lblCvc:'セキュリティコード',
+    qrSub:'アプリでQRコードをスキャンしてお支払いください',
+    icTitle:'交通系 IC カード',icSub:'乗車時にカードリーダーへタッチしてください。<br>Suica・ICOCA・nimoca・Kitaca等に対応。',
+    cashTitle:'現金払い',cashSub:'降車時にドライバーへお支払いください。<br>お釣りのご用意がございます。',
+    invoiceTitle:'請求書払い（法人）',invoiceSub:'月末締め翌月払いに対応しております。<br>ご予約後、担当者よりご連絡いたします。',
+    completeTitle:'御予約ありがとうございます',
+    completeMsg:'ご予約を承りました。<br>担当者より24時間以内にご連絡いたします。<br>ご不明な点はお電話にてお気軽にお問い合わせください。',
+    completeNumLabel:'Booking Number',btnReset:'新しい予約をする',
+    lblSelectCourse:'コースをお選びください',
+    c1Name:'空港送迎',c1Price:'¥10,000〜',c1Desc:'那覇空港⇔各地<br>片道送迎',
+    c2Name:'観光チャーター（半日）',c2Price:'¥25,000〜',c2Desc:'最大4時間<br>お好きなルート',
+    c3Name:'観光チャーター（1日）',c3Price:'¥45,000〜',c3Desc:'最大8時間<br>北部・南部エリア',
+    c4Name:'VIP・法人送迎',c4Price:'お見積り',c4Desc:'ビジネス・会食<br>月額契約応相談',
+  },
+  en: {
+    videoLabel:'Okinawa',
+    videoTitle:'Discover Okinawa<br>with RYUGA PREMIER',
+    videoDesc:'Emerald seas, coral reefs, and lush tropical green.<br>Experience the true beauty of this island in premium style.',
+    conceptEn:'Our Concept',
+    conceptTitle:'Heartfelt Hospitality<br>Across Okinawa',
+    conceptBody:'This island, shaped by the history and nature of the Ryukyu Kingdom.<br>Enjoy it at your own pace in our premium hire car.<br>From tourists to local VIPs,<br>we treasure every once-in-a-lifetime journey.',
+    servicesEn:'Services',servicesTitle:'Our Services',
+    svc1Name:'Airport Transfer',svc1Desc:'Comfortable rides from Naha Airport<br>to major hotels & attractions',svc1Price:'From ¥10,000',
+    svc2Name:'Sightseeing Charter',svc2Desc:'Private sightseeing across Okinawa<br>Half-day & full-day plans available',svc2Price:'From ¥25,000',
+    svc3Name:'VIP & Corporate',svc3Desc:'Exclusive service for executives<br>Monthly contract plans available',svc3Price:'Quote on request',
+    footerNameJa:'首里ハイヤー',footerNameEn:'Shuri Hire',
+    footerInfo:'Okinawa, Japan　Shuri Hire Co., Ltd. (provisional)<br>TEL: 098-000-0000　Hours: 8:00–20:00<br>Licensed passenger vehicle transportation',
+    heroEn:'Okinawa Premium Hire',heroTitle:'RYUGA PREMIER',
+    heroCatch:'Experience the beauty of Okinawa<br>in premium comfort',
+    heroCta:'Book Now',bookingTitle:'Reservation',
+    stepCourse:'Course',stepDatetime:'Date & Place',stepCustomer:'Your Info',stepConfirm:'Confirm',stepPayment:'Payment',
+    labelDate:'Pickup Date',labelTime:'Pickup Time',labelPickup:'Pickup Location',labelDest:'Destination',labelPax:'Passengers',
+    placeholderDate:'Select date',placeholderTime:'Select time',placeholderLoc:'Tap to enter',
+    sectionPlace:'LOCATION',btnNext:'Next',btnBack:'← Back',btnConfirm:'Confirm',required:'Required',
+    btnGps:'📍 Use Current Location',errAll:'Please fill in all fields',errEmail:'Please enter a valid email address',errPay:'Please select a payment method',
+    lblName:'Full Name',lblKana:'Name (Romaji)',lblPhone:'Phone',lblEmail:'Email',lblNotes:'Requests / Notes',
+    phName:'Taro Yamada',phKana:'TARO YAMADA',phPhone:'+81-90-0000-0000',phEmail:'example@email.com',
+    phNotes:'Child seat, extra luggage, other requests...',
+    btnToConfirm:'Review Booking',
+    cheadBooking:'Booking Details',cheadCustomer:'Your Information',
+    ckeyCourseLbl:'Course',ckeyDatetime:'Date & Time',ckeyPickup:'Pickup',ckeyDest:'Destination',ckeyPax:'Passengers',
+    ckeyName:'Name',ckeyPhone:'Phone',ckeyEmail:'Email',ckeyNotes:'Requests',
+    noticeConfirm:'After confirming your reservation, our staff will contact you by phone or email.<br>Free cancellation up to 24 hours before pickup.',
+    btnToPayment:'Proceed to Payment',btnBackEdit:'← Edit Details',
+    cheadPayment:'Payment Amount',ckeyPayCourse:'Course',ckeyTotal:'Total (incl. tax)',
+    noticeMock:'🔒 This is a demo. No actual payment will be processed.',
+    btnSubmit:'Confirm Booking',btnBackConfirm:'← Back to Review',
+    lblPayMethod:'Select Payment Method',
+    lblCardNum:'Card Number',lblCardName:'Cardholder Name',lblExpiry:'Expiry Date',lblCvc:'Security Code',
+    qrSub:'Scan the QR code with your app to pay',
+    icTitle:'IC Card',icSub:'Touch your card to the reader when boarding.<br>Suica, ICOCA, nimoca, Kitaca accepted.',
+    cashTitle:'Cash Payment',cashSub:'Please pay the driver upon arrival.<br>Change is available.',
+    invoiceTitle:'Invoice (Corporate)',invoiceSub:'Monthly billing available.<br>Our staff will contact you after booking.',
+    completeTitle:'Thank you for your reservation',
+    completeMsg:'Your booking has been received.<br>Our staff will contact you within 24 hours.<br>Please feel free to call us with any questions.',
+    completeNumLabel:'Booking Number',btnReset:'New Booking',
+    lblSelectCourse:'Select a Course',
+    c1Name:'Airport Transfer',c1Price:'From ¥10,000',c1Desc:'Naha Airport ⇔ Any destination<br>One-way transfer',
+    c2Name:'Sightseeing Charter (Half Day)',c2Price:'From ¥25,000',c2Desc:'Up to 4 hours<br>Your choice of route',
+    c3Name:'Sightseeing Charter (Full Day)',c3Price:'From ¥45,000',c3Desc:'Up to 8 hours<br>North & South Okinawa',
+    c4Name:'VIP & Corporate',c4Price:'Quote on request',c4Desc:'Business & dining<br>Monthly contracts available',
+  },
+  ko: {
+    videoLabel:'Okinawa',
+    videoTitle:'류가 프리미어와 함께<br>오키나와의 진수로',
+    videoDesc:'에메랄드빛 바다, 산호초, 아열대의 녹음.<br>프리미엄 하이어로 이 섬의 진정한 아름다움을 만나세요.',
+    conceptEn:'Our Concept',
+    conceptTitle:'진심 어린 환대로<br>오키나와를 안내합니다',
+    conceptBody:'류큐 왕국의 역사와 자연이 키운 이 섬을,<br>고급 하이어로 여유롭게 즐기세요.<br>여행객부터 지역 VIP까지,<br>소중한 한때를 정성껏 모십니다.',
+    servicesEn:'Services',servicesTitle:'서비스 안내',
+    svc1Name:'공항 송영',svc1Desc:'나하 공항에서 주요 호텔・<br>관광지까지 쾌적하게 안내',svc1Price:'¥10,000~',
+    svc2Name:'관광 전세',svc2Desc:'오키나와 절경을 프라이빗하게<br>반나절・하루 플랜 있음',svc2Price:'¥25,000~',
+    svc3Name:'VIP・법인 송영',svc3Desc:'경영자・비즈니스 게스트 전용<br>월정액 계약 플랜도 준비',svc3Price:'견적 문의',
+    footerNameJa:'首里ハイヤー',footerNameEn:'Shuri Hire',
+    footerInfo:'오키나와현　슈리하이어 주식회사（가칭）<br>TEL: 098-000-0000　접수 시간 8:00〜20:00<br>일반 여객 자동차 운송사업　허가번호：신청중',
+    heroEn:'Okinawa Premium Hire',heroTitle:'류가 프리미어',
+    heroCatch:'류큐의 바람을 느끼며<br>특별한 여행을 선사합니다',
+    heroCta:'예약하기',bookingTitle:'예약',
+    stepCourse:'코스',stepDatetime:'일시・장소',stepCustomer:'고객 정보',stepConfirm:'확인',stepPayment:'결제',
+    labelDate:'탑승일',labelTime:'탑승 시간',labelPickup:'탑승 장소',labelDest:'목적지',labelPax:'탑승 인원',
+    placeholderDate:'날짜 선택',placeholderTime:'시간 선택',placeholderLoc:'탭하여 입력',
+    sectionPlace:'장　소',btnNext:'다음',btnBack:'← 뒤로',btnConfirm:'확인',required:'필수',
+    btnGps:'📍 현재 위치 사용',errAll:'모든 항목을 입력해 주세요',errEmail:'올바른 이메일 주소를 입력해 주세요',errPay:'결제 방법을 선택해 주세요',
+    lblName:'이름',lblKana:'이름 (로마자)',lblPhone:'전화번호',lblEmail:'이메일',lblNotes:'요청사항・메모',
+    phName:'홍길동',phKana:'HONG GIL DONG',phPhone:'+82-10-0000-0000',phEmail:'example@email.com',
+    phNotes:'유아용 시트, 짐 많음, 기타 요청사항...',
+    btnToConfirm:'예약 내용 확인',
+    cheadBooking:'예약 내용',cheadCustomer:'고객 정보',
+    ckeyCourseLbl:'코스',ckeyDatetime:'일시',ckeyPickup:'탑승 장소',ckeyDest:'목적지',ckeyPax:'인원',
+    ckeyName:'이름',ckeyPhone:'전화번호',ckeyEmail:'이메일',ckeyNotes:'요청사항',
+    noticeConfirm:'예약 확정 후 담당자가 전화 또는 이메일로 연락드립니다.<br>탑승 24시간 전까지 무료 취소 가능합니다.',
+    btnToPayment:'결제로 진행',btnBackEdit:'← 내용 수정',
+    cheadPayment:'결제 금액',ckeyPayCourse:'코스',ckeyTotal:'합계（세금 포함）',
+    noticeMock:'🔒 이 페이지는 데모입니다. 실제 결제는 이루어지지 않습니다.',
+    btnSubmit:'예약 확정',btnBackConfirm:'← 확인 화면으로',
+    lblPayMethod:'결제 방법을 선택해 주세요',
+    lblCardNum:'카드 번호',lblCardName:'카드 명의자',lblExpiry:'유효기간',lblCvc:'보안 코드',
+    qrSub:'앱으로 QR 코드를 스캔하여 결제해 주세요',
+    icTitle:'IC 카드',icSub:'탑승 시 카드 리더기에 터치하세요.<br>Suica, ICOCA, nimoca 등 사용 가능.',
+    cashTitle:'현금 결제',cashSub:'하차 시 드라이버에게 지불해 주세요.<br>잔돈 준비 되어 있습니다.',
+    invoiceTitle:'청구서 결제 (법인)',invoiceSub:'월말 정산 가능합니다.<br>예약 후 담당자가 연락드립니다.',
+    completeTitle:'예약해 주셔서 감사합니다',
+    completeMsg:'예약이 접수되었습니다.<br>담당자가 24시간 이내에 연락드립니다.<br>문의사항은 전화로 연락해 주세요.',
+    completeNumLabel:'예약 번호',btnReset:'새 예약',
+    lblSelectCourse:'코스를 선택해 주세요',
+    c1Name:'공항 송영',c1Price:'¥10,000~',c1Desc:'나하 공항 ⇔ 각지<br>편도 송영',
+    c2Name:'관광 전세 (반나절)',c2Price:'¥25,000~',c2Desc:'최대 4시간<br>원하는 루트',
+    c3Name:'관광 전세 (하루)',c3Price:'¥45,000~',c3Desc:'최대 8시간<br>북부・남부 지역',
+    c4Name:'VIP・법인 송영',c4Price:'견적 문의',c4Desc:'비즈니스・회식<br>월정액 계약 가능',
+  },
+  zh: {
+    videoLabel:'Okinawa',
+    videoTitle:'與琉雅尊榮一同<br>探索沖繩之美',
+    videoDesc:'翡翠色的海洋、珊瑚礁、亞熱帶的綠意。<br>乘坐尊榮專車，感受這座島嶼真正的魅力。',
+    conceptEn:'Our Concept',
+    conceptTitle:'以款待之心<br>帶您遊覽沖繩',
+    conceptBody:'這座由琉球歷史與自然孕育的島嶼，<br>請您搭乘高級專車，悠然享受。<br>無論是觀光旅客還是當地VIP，<br>我們珍惜每一段獨一無二的旅程。',
+    servicesEn:'Services',servicesTitle:'服務介紹',
+    svc1Name:'機場接送',svc1Desc:'那霸機場至主要飯店・<br>景點的舒適接送服務',svc1Price:'¥10,000起',
+    svc2Name:'觀光包車',svc2Desc:'私人專屬沖繩絕景之旅<br>半日・全日方案可選',svc2Price:'¥25,000起',
+    svc3Name:'VIP・企業接送',svc3Desc:'專為企業主管・商務賓客提供<br>月租合約方案亦可洽談',svc3Price:'提供報價',
+    footerNameJa:'首里ハイヤー',footerNameEn:'Shuri Hire',
+    footerInfo:'沖繩縣　首里專車股份有限公司（暫定）<br>TEL: 098-000-0000　受理時間 8:00〜20:00<br>一般旅客汽車運輸業　許可號碼：申請中',
+    heroEn:'Okinawa Premium Hire',heroTitle:'琉雅尊榮',
+    heroCatch:'感受琉球的風情<br>為您獻上尊貴的旅程',
+    heroCta:'立即預約',bookingTitle:'預約',
+    stepCourse:'方案',stepDatetime:'日期・地點',stepCustomer:'顧客資訊',stepConfirm:'確認',stepPayment:'付款',
+    labelDate:'乘車日期',labelTime:'乘車時間',labelPickup:'上車地點',labelDest:'目的地',labelPax:'乘坐人數',
+    placeholderDate:'選擇日期',placeholderTime:'選擇時間',placeholderLoc:'點擊輸入',
+    sectionPlace:'地　點',btnNext:'下一步',btnBack:'← 返回',btnConfirm:'確定',required:'必填',
+    btnGps:'📍 使用目前位置',errAll:'請填寫所有欄位',errEmail:'請輸入有效的電子郵件地址',errPay:'請選擇付款方式',
+    lblName:'姓名',lblKana:'姓名（羅馬字）',lblPhone:'電話號碼',lblEmail:'電子郵件',lblNotes:'要求事項・備註',
+    phName:'王小明',phKana:'WANG XIAO MING',phPhone:'+886-9-0000-0000',phEmail:'example@email.com',
+    phNotes:'兒童座椅、行李較多、其他要求...',
+    btnToConfirm:'確認預約內容',
+    cheadBooking:'預約內容',cheadCustomer:'顧客資訊',
+    ckeyCourseLbl:'方案',ckeyDatetime:'日期時間',ckeyPickup:'上車地點',ckeyDest:'目的地',ckeyPax:'人數',
+    ckeyName:'姓名',ckeyPhone:'電話',ckeyEmail:'電子郵件',ckeyNotes:'要求事項',
+    noticeConfirm:'預約確認後，工作人員將以電話或電子郵件與您聯繫。<br>上車24小時前可免費取消。',
+    btnToPayment:'前往付款',btnBackEdit:'← 修改內容',
+    cheadPayment:'付款金額',ckeyPayCourse:'方案',ckeyTotal:'合計（含稅）',
+    noticeMock:'🔒 此頁面為示範模式，不會進行實際付款。',
+    btnSubmit:'確認預約',btnBackConfirm:'← 返回確認畫面',
+    lblPayMethod:'請選擇付款方式',
+    lblCardNum:'卡號',lblCardName:'持卡人姓名',lblExpiry:'有效期限',lblCvc:'安全碼',
+    qrSub:'請使用應用程式掃描QR碼付款',
+    icTitle:'IC 卡',icSub:'上車時請將卡片靠近讀卡機。<br>支援 Suica、ICOCA、nimoca 等。',
+    cashTitle:'現金付款',cashSub:'下車時請向司機付款。<br>備有找零服務。',
+    invoiceTitle:'發票付款（法人）',invoiceSub:'可月結付款。<br>預約後將由工作人員與您聯繫。',
+    completeTitle:'感謝您的預約',
+    completeMsg:'已收到您的預約。<br>工作人員將在24小時內與您聯繫。<br>如有疑問請隨時來電。',
+    completeNumLabel:'預約號碼',btnReset:'新預約',
+    lblSelectCourse:'請選擇方案',
+    c1Name:'機場接送',c1Price:'¥10,000起',c1Desc:'那霸機場 ⇔ 各地<br>單程接送',
+    c2Name:'觀光包車（半日）',c2Price:'¥25,000起',c2Desc:'最多4小時<br>自選路線',
+    c3Name:'觀光包車（全日）',c3Price:'¥45,000起',c3Desc:'最多8小時<br>北部・南部地區',
+    c4Name:'VIP・企業接送',c4Price:'提供報價',c4Desc:'商務・餐敘<br>月租合約可洽談',
+  },
+};
+let currentLang = 'ja';
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('ryuga_lang', lang);
+  const t = I18N[lang];
+
+  document.getElementById('lang-modal').style.display = 'none';
+  ['ja','en','ko','zh'].forEach(l => {
+    const b = document.getElementById('lb-' + l);
+    if (b) b.classList.toggle('active', l === lang);
+  });
+
+  const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+  const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.value = val; };
+  const setPh = (id, val) => { const el = document.getElementById(id); if (el) el.placeholder = val; };
+
+  // ── ヒーロー ──
+  set('hero-en-text', t.heroEn);
+  set('hero-title-text', t.heroTitle);
+  set('hero-catch-text', t.heroCatch);
+  set('hero-cta-text', t.heroCta);
+  set('booking-title-text', t.bookingTitle);
+  set('video-label-text', t.videoLabel);
+  set('video-title-text', t.videoTitle);
+  set('video-desc-text',  t.videoDesc);
+
+  // ── コンセプト ──
+  set('concept-en',    t.conceptEn);
+  set('concept-title', t.conceptTitle);
+  set('concept-body',  t.conceptBody);
+
+  // ── サービス ──
+  set('services-en',    t.servicesEn);
+  set('services-title', t.servicesTitle);
+  set('svc1-name',  t.svc1Name);  set('svc1-desc',  t.svc1Desc);  set('svc1-price', t.svc1Price);
+  set('svc2-name',  t.svc2Name);  set('svc2-desc',  t.svc2Desc);  set('svc2-price', t.svc2Price);
+  set('svc3-name',  t.svc3Name);  set('svc3-desc',  t.svc3Desc);  set('svc3-price', t.svc3Price);
+
+  // ── フッター ──
+  set('footer-name-ja', t.footerNameJa);
+  set('footer-name-en', t.footerNameEn);
+  set('footer-info',    t.footerInfo);
+
+  // ── ステップラベル ──
+  ['1','2','3','4','5'].forEach((n, i) => {
+    set('sl-' + n, ['stepCourse','stepDatetime','stepCustomer','stepConfirm','stepPayment'][i].split('').reduce((a,c)=>a,t[['stepCourse','stepDatetime','stepCustomer','stepConfirm','stepPayment'][i]]));
+    const el = document.getElementById('sl-' + n);
+    if (el) el.textContent = t[['stepCourse','stepDatetime','stepCustomer','stepConfirm','stepPayment'][i]];
+  });
+
+
+  // ── Step1 コース ──
+  set('lbl-select-course', t.lblSelectCourse + '<span class="field-required" style="margin-left:6px;">' + t.required + '</span>');
+  [1,2,3,4].forEach(n => {
+    set('c'+n+'-name',  t['c'+n+'Name']);
+    set('c'+n+'-price', t['c'+n+'Price']);
+    set('c'+n+'-desc',  t['c'+n+'Desc']);
+  });
+
+  // ── Step2 ──
+  set('label-date', t.labelDate);
+  set('label-time', t.labelTime);
+  set('label-pickup', t.labelPickup);
+  set('label-dest', t.labelDest);
+  set('label-pax', t.labelPax + '<span class="field-required" style="margin-left:4px;">' + t.required + '</span>');
+  const ddt = document.getElementById('date-display-text');
+  if (ddt && !document.getElementById('f-date').value) ddt.textContent = t.placeholderDate;
+  const tdt = document.getElementById('time-display-text');
+  if (tdt && !document.getElementById('f-time').value) tdt.textContent = t.placeholderTime;
+  const ltp = document.getElementById('loc-text-pickup');
+  if (ltp && !document.getElementById('f-pickup').value) ltp.textContent = t.placeholderLoc;
+  const ltd = document.getElementById('loc-text-dest');
+  if (ltd && !document.getElementById('f-dest').value) ltd.textContent = t.placeholderLoc;
+  const sd = document.getElementById('rc-div-place');
+  if (sd) sd.setAttribute('data-label', t.sectionPlace);
+  document.querySelectorAll('.go-confirm-btn').forEach(b => b.textContent = t.btnConfirm);
+  const gpsLabel = document.getElementById('gps-label');
+  if (gpsLabel) gpsLabel.textContent = (t.btnGps || '').replace('📍 ', '');
+
+  // ── Step3 ──
+  const req = '<span class="field-required">' + t.required + '</span>';
+  set('lbl-name',  t.lblName + req);
+  set('lbl-kana',  t.lblKana);
+  set('lbl-phone', t.lblPhone + req);
+  set('lbl-email', t.lblEmail + req);
+  set('lbl-notes', t.lblNotes);
+  setPh('f-name',  t.phName);
+  setPh('f-kana',  t.phKana);
+  setPh('f-phone', t.phPhone);
+  setPh('f-email', t.phEmail);
+  setPh('f-notes', t.phNotes);
+  set('btn-to-confirm', t.btnToConfirm);
+  const bb3 = document.getElementById('btn-back-3');
+  if (bb3) bb3.textContent = t.btnBack;
+
+  // ── Step4 確認 ──
+  set('chead-booking',  t.cheadBooking);
+  set('chead-customer', t.cheadCustomer);
+  set('ckey-course',    t.ckeyCourseLbl);
+  set('ckey-datetime',  t.ckeyDatetime);
+  set('ckey-pickup',    t.ckeyPickup);
+  set('ckey-dest',      t.ckeyDest);
+  set('ckey-pax',       t.ckeyPax);
+  set('ckey-name',      t.ckeyName);
+  set('ckey-phone',     t.ckeyPhone);
+  set('ckey-email',     t.ckeyEmail);
+  set('ckey-notes',     t.ckeyNotes);
+  set('notice-confirm', t.noticeConfirm);
+  set('btn-to-payment', t.btnToPayment);
+  const bb4 = document.getElementById('btn-back-4');
+  if (bb4) bb4.textContent = t.btnBackEdit;
+
+  // ── Step5 決済 ──
+  set('lbl-pay-method', t.lblPayMethod + '<span class="field-required" style="margin-left:6px;">' + t.required + '</span>');
+  set('chead-payment',   t.cheadPayment);
+  set('ckey-pay-course', t.ckeyPayCourse);
+  set('ckey-total',      t.ckeyTotal);
+  set('notice-mock',     t.noticeMock);
+  const psb = document.getElementById('pay-submit-btn');
+  if (psb && psb.textContent !== '送信中...') psb.textContent = t.btnSubmit;
+  const bb5 = document.getElementById('btn-back-5');
+  if (bb5) bb5.textContent = t.btnBackConfirm;
+
+  // カードフォームラベル
+  const cardLbls = document.querySelectorAll('#card-form-wrap .field-label');
+  ['lblCardNum','lblCardName','lblExpiry','lblCvc'].forEach((k, i) => {
+    if (cardLbls[i]) cardLbls[i].textContent = t[k];
+  });
+
+  // QR・IC・現金・請求書
+  const qrSub = document.querySelector('#qr-wrap .pay-alt-sub');
+  if (qrSub) qrSub.innerHTML = t.qrSub;
+  const icTitle = document.querySelector('#ic-wrap .pay-alt-title');
+  const icSub   = document.querySelector('#ic-wrap .pay-alt-sub');
+  if (icTitle) icTitle.textContent = t.icTitle;
+  if (icSub)   icSub.innerHTML     = t.icSub;
+  const cashTitle = document.querySelector('#cash-wrap .pay-alt-title');
+  const cashSub   = document.querySelector('#cash-wrap .pay-alt-sub');
+  if (cashTitle) cashTitle.textContent = t.cashTitle;
+  if (cashSub)   cashSub.innerHTML     = t.cashSub;
+  const invTitle = document.querySelector('#invoice-wrap .pay-alt-title');
+  const invSub   = document.querySelector('#invoice-wrap .pay-alt-sub');
+  if (invTitle) invTitle.textContent = t.invoiceTitle;
+  if (invSub)   invSub.innerHTML     = t.invoiceSub;
+
+  // ── 完了画面 ──
+  set('complete-title',     t.completeTitle);
+  set('complete-msg',       t.completeMsg);
+  set('complete-num-label', t.completeNumLabel);
+  const brBtn = document.querySelector('.btn-reset');
+  if (brBtn) brBtn.textContent = t.btnReset;
+
+  // ── 共通ボタン ──
+  document.querySelectorAll('.btn-next').forEach(b => {
+    if (!b.id || (b.id !== 'pay-submit-btn' && b.id !== 'btn-to-confirm' && b.id !== 'btn-to-payment'))
+      b.textContent = t.btnNext;
+  });
+  document.querySelectorAll('.btn-back').forEach(b => {
+    if (!b.id || (b.id !== 'btn-back-3' && b.id !== 'btn-back-4' && b.id !== 'btn-back-5'))
+      b.textContent = t.btnBack;
+  });
+}
+
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('ryuga_lang');
+  if (saved && I18N[saved]) {
+    setLang(saved);
+  }
+  // モーダルは毎回表示（言語確認）
+});
+
+(function buildCalendar() {
+  const today   = new Date();
+  today.setHours(0,0,0,0);
+  let curYear  = today.getFullYear();
+  let curMonth = today.getMonth();
+  let selDate  = null;
+
+  document.getElementById('f-date').min = today.toISOString().slice(0,10);
+
+  function render() {
+    const months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+    document.getElementById('cal-title').textContent = curYear + '年 ' + months[curMonth];
+
+    const grid = document.getElementById('cal-grid');
+    grid.innerHTML = '';
+
+    const first   = new Date(curYear, curMonth, 1).getDay();
+    const dayCount = new Date(curYear, curMonth + 1, 0).getDate();
+
+    // 空白セル
+    for (let i = 0; i < first; i++) {
+      const blank = document.createElement('div');
+      grid.appendChild(blank);
+    }
+
+    for (let d = 1; d <= dayCount; d++) {
+      const dt   = new Date(curYear, curMonth, d);
+      const cell = document.createElement('div');
+      const dow  = dt.getDay();
+      let cls    = 'cal-cell';
+      if (dow === 0) cls += ' sun';
+      if (dow === 6) cls += ' sat';
+      if (dt < today) { cls += ' disabled'; }
+      else {
+        if (dt.getTime() === today.getTime()) cls += ' today';
+        if (selDate && dt.getTime() === selDate.getTime()) cls += ' selected';
+      }
+      cell.className = cls;
+      cell.textContent = d;
+      cell.addEventListener('click', () => selectDate(dt, d));
+      grid.appendChild(cell);
+    }
+  }
+
+  function selectDate(dt, d) {
+    selDate = dt;
+    const y  = dt.getFullYear();
+    const m  = String(dt.getMonth() + 1).padStart(2, '0');
+    const dd = String(d).padStart(2, '0');
+    const val = y + '-' + m + '-' + dd;
+    document.getElementById('f-date').value = val;
+
+    const weeks = ['日','月','火','水','木','金','土'];
+    document.getElementById('date-display-text').textContent =
+      y + '年' + (dt.getMonth()+1) + '月' + d + '日（' + weeks[dt.getDay()] + '）';
+    document.getElementById('date-display-text').style.color = 'var(--white)';
+    document.getElementById('date-display-text').style.fontFamily = "'Playfair Display', serif";
+    document.getElementById('date-display-text').style.fontSize = '18px';
+
+    document.getElementById('cal-panel').style.display = 'none';
+    document.getElementById('date-picker-arrow').textContent = '▼';
+    render();
+  }
+
+  window.toggleCalendar = function() {
+    const panel = document.getElementById('cal-panel');
+    const arrow = document.getElementById('date-picker-arrow');
+    const open  = panel.style.display !== 'none';
+    panel.style.display = open ? 'none' : 'block';
+    arrow.textContent   = open ? '▼' : '▲';
+    if (!open) render();
+  };
+
+  window.calMove = function(dir) {
+    curMonth += dir;
+    if (curMonth > 11) { curMonth = 0; curYear++; }
+    if (curMonth < 0)  { curMonth = 11; curYear--; }
+    render();
+  };
+})();
+
+// ── 時刻スクロールピッカー ────────────────────────────
+(function buildTimePicker() {
+  const hours   = Array.from({length: 18}, (_, i) => String(i + 6).padStart(2, '0'));
+  const minutes = ['00', '15', '30', '45'];
+  let selH = '09', selM = '00';
+  let drumBuilt = false;
+
+  function buildDrum(el, items, initial, onChange) {
+    el.innerHTML = '';
+    const pad = document.createElement('div');
+    pad.style.cssText = 'height:44px;flex-shrink:0;';
+    el.appendChild(pad.cloneNode());
+    items.forEach((val, i) => {
+      const item = document.createElement('div');
+      item.className = 'time-drum-item' + (val === initial ? ' active' : '');
+      item.textContent = val;
+      item.dataset.val = val;
+      // タップで選択（クローズしない）
+      item.addEventListener('click', () => {
+        el.scrollTo({ top: i * 44, behavior: 'smooth' });
+        el.querySelectorAll('.time-drum-item').forEach((it, j) => {
+          it.classList.toggle('active', j === i);
+        });
+        onChange(val);
+      });
+      el.appendChild(item);
+    });
+    const pad2 = document.createElement('div');
+    pad2.style.cssText = 'height:44px;flex-shrink:0;';
+    el.appendChild(pad2);
+    // 初期スクロール
+    const initIdx = items.indexOf(initial);
+    setTimeout(() => { el.scrollTop = initIdx * 44; }, 50);
+    // スクロールで選択（停止後に値を確定・パネルは閉じない）
+    let scrollTimer;
+    el.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        const idx = Math.max(0, Math.min(items.length - 1, Math.round(el.scrollTop / 44)));
+        el.scrollTo({ top: idx * 44, behavior: 'smooth' });
+        el.querySelectorAll('.time-drum-item').forEach((item, i) => {
+          item.classList.toggle('active', i === idx);
+        });
+        onChange(items[idx]);
+        // 値を即時反映（パネルは閉じない）
+        const val = selH + ':' + selM;
+        document.getElementById('f-time').value = val;
+        const disp = document.getElementById('time-display-text');
+        disp.textContent = val;
+        disp.classList.add('set');
+      }, 150);
+    });
+  }
+
+  window.toggleTimePicker = function() {
+    const panel = document.getElementById('time-picker-panel');
+    const arrow = document.getElementById('time-picker-arrow');
+    const open  = panel.style.display !== 'none';
+    if (open) {
+      panel.style.display = 'none';
+      arrow.textContent = '▼';
+    } else {
+      panel.style.display = 'block';
+      arrow.textContent = '▲';
+      if (!drumBuilt) {
+        buildDrum(document.getElementById('drum-hour'), hours, selH, val => { selH = val; });
+        buildDrum(document.getElementById('drum-min'),  minutes, selM, val => { selM = val; });
+        drumBuilt = true;
+      }
+    }
+  };
+
+  window.confirmTime = function() {
+    const val = selH + ':' + selM;
+    document.getElementById('f-time').value = val;
+    const el = document.getElementById('time-display-text');
+    el.textContent = val;
+    el.classList.add('set');
+    document.getElementById('time-picker-panel').style.display = 'none';
+    document.getElementById('time-picker-arrow').textContent = '▼';
+  };
+})();
+
+// スムーズスクロール
+document.querySelector('.btn-yoyaku').addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById('booking').scrollIntoView({ behavior:'smooth' });
+});
+
+// ── 入力済みクラス自動付与 ──
+function trackFilled() {
+  document.querySelectorAll('.field-input, .field-select, .field-textarea').forEach(el => {
+    el.addEventListener('input', () => {
+      el.classList.toggle('filled', el.value.trim().length > 0);
+    });
+    el.addEventListener('change', () => {
+      el.classList.toggle('filled', el.value.trim().length > 0);
+    });
+  });
+}
+trackFilled();
+
+// ── コース選択 ──
+let selCourse = '', selPrice = '';
+
+function selectCourse(el, name, price) {
+  document.querySelectorAll('.course-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selCourse = name;
+  selPrice = price;
+  document.getElementById('err-1').textContent = '';
+}
+
+// ── 場所ウィジェット ──
+let mapActiveField = 'f-pickup';
+
+function setupLocationField(inputId, mapWrapperId) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  // ボタン行を入力欄の下に差し込む
+  const actionsId = 'loc-actions-' + inputId;
+  if (!document.getElementById(actionsId)) {
+    const wrap = document.createElement('div');
+    wrap.id = actionsId;
+    wrap.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;';
+    wrap.innerHTML = `
+      <button type="button" onclick="showMapForField('${inputId}','${mapWrapperId}')" style="display:inline-flex;align-items:center;gap:4px;background:#152019;border:1px solid rgba(212,168,67,0.35);color:#d4a843;font-size:11px;padding:4px 10px;border-radius:2px;cursor:pointer;font-family:'Zen Antique Soft',serif;letter-spacing:0.08em;transition:all 0.2s;">🗺 マップで確認</button>
+      <button type="button" onclick="useGPS('${inputId}','${mapWrapperId}')" style="display:inline-flex;align-items:center;gap:4px;background:#152019;border:1px solid rgba(212,168,67,0.35);color:#d4a843;font-size:11px;padding:4px 10px;border-radius:2px;cursor:pointer;font-family:'Zen Antique Soft',serif;letter-spacing:0.08em;transition:all 0.2s;" id="gps-btn-${inputId}">📍 現在地</button>`;
+    input.parentNode.insertBefore(wrap, input.nextSibling);
+  }
+  // マップ枠を差し込む
+  if (!document.getElementById(mapWrapperId)) {
+    const mapDiv = document.createElement('div');
+    mapDiv.id = mapWrapperId;
+    mapDiv.style.cssText = 'width:100%;height:200px;border-radius:2px;border:1px solid rgba(212,168,67,0.25);margin-top:8px;overflow:hidden;display:none;';
+    mapDiv.innerHTML = `<iframe id="iframe-${mapWrapperId}" style="width:100%;height:100%;border:none;" allowfullscreen loading="lazy"></iframe>`;
+    input.parentNode.insertBefore(mapDiv, document.getElementById(actionsId).nextSibling);
+  }
+  input.addEventListener('input', () => {
+    if (input.value.trim().length > 1) showMapForField(inputId, mapWrapperId);
+  });
+}
+
+function showMapForField(inputId, mapWrapperId) {
+  const val = document.getElementById(inputId).value.trim();
+  if (!val) return;
+  const q = encodeURIComponent(val + ' 沖縄');
+  const mapDiv = document.getElementById(mapWrapperId);
+  const iframe = document.getElementById('iframe-' + mapWrapperId);
+  iframe.src = 'https://maps.google.com/maps?q=' + q + '&output=embed&hl=ja&z=15';
+  mapDiv.style.display = 'block';
+}
+
+function useGPS(inputId, mapWrapperId) {
+  const btn = document.getElementById('gps-btn-' + inputId);
+  const orig = btn.innerHTML;
+  btn.innerHTML = '⏳ 取得中...';
+  if (!navigator.geolocation) { btn.innerHTML = '✗ 非対応'; setTimeout(() => btn.innerHTML = orig, 2000); return; }
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = pos.coords.latitude.toFixed(5);
+    const lng = pos.coords.longitude.toFixed(5);
+    const input = document.getElementById(inputId);
+    input.value = lat + ', ' + lng;
+    input.classList.add('filled');
+    btn.innerHTML = '✓ 設定済み';
+    setTimeout(() => btn.innerHTML = orig, 2500);
+    const mapDiv = document.getElementById(mapWrapperId);
+    const iframe = document.getElementById('iframe-' + mapWrapperId);
+    iframe.src = 'https://maps.google.com/maps?q=' + lat + ',' + lng + '&output=embed&hl=ja&z=16';
+    mapDiv.style.display = 'block';
+  }, () => {
+    btn.innerHTML = '✗ 失敗';
+    setTimeout(() => btn.innerHTML = orig, 2000);
+  }, { enableHighAccuracy: true, timeout: 10000 });
+}
+
+// ── 前回の場所（LocalStorage） ───────────────────────────
+
+function saveRecentLocation(field, placeName) {
+  if (!placeName || placeName.includes(',')) return; // 座標は保存しない
+  const key = 'ryuga_recent_' + field;
+  let list = JSON.parse(localStorage.getItem(key) || '[]');
+  list = list.filter(p => p !== placeName); // 重複除去
+  list.unshift(placeName); // 先頭に追加
+  list = list.slice(0, 3); // 最大3件
+  localStorage.setItem(key, JSON.stringify(list));
+}
+
+function loadRecentLocations(field) {
+  const key = 'ryuga_recent_' + field;
+  const list = JSON.parse(localStorage.getItem(key) || '[]');
+  const section = document.getElementById('recent-' + field + '-section');
+  if (!section) return;
+  section.innerHTML = '';
+  if (list.length === 0) return;
+
+  const divider = document.createElement('div');
+  divider.className = 'loc-menu-divider';
+  divider.textContent = '前回の場所';
+  section.appendChild(divider);
+
+  list.forEach(place => {
+    const item = document.createElement('div');
+    item.className = 'loc-menu-recent';
+    item.innerHTML = '🕐 ' + place;
+    item.onclick = () => locChoosePreset(field, place);
+    section.appendChild(item);
+  });
+}
+
+function toggleLocMenu(field) {
+  const menu = document.getElementById('loc-menu-' + field);
+  const isOpen = menu.style.display !== 'none';
+  ['pickup','dest'].forEach(f => {
+    document.getElementById('loc-menu-' + f).style.display = 'none';
+  });
+  if (!isOpen) {
+    loadRecentLocations(field); // 開く前に前回履歴を読み込む
+    menu.style.display = 'block';
+  }
+}
+
+// ── GOアプリ風 場所入力パネル ────────────────────────────
+
+const PRESETS = {
+  pickup: [
+    { name: '那覇空港 国内線ターミナル', sub: '那覇市鏡水150', icon: '✈' },
+    { name: '那覇空港 国際線ターミナル', sub: '那覇市鏡水150', icon: '✈' },
+    { name: '那覇港',                   sub: '那覇市西3-11',  icon: '🚢' },
+    { name: '国際通り',                  sub: '那覇市牧志',    icon: '🛍' },
+    { name: '首里城公園',                sub: '那覇市首里',    icon: '🏯' },
+    { name: '沖縄県庁',                  sub: '那覇市泉崎1-2-2',icon: '🏛' },
+  ],
+  dest: [
+    { name: 'ザ・ブセナテラス',             sub: '名護市喜瀬1808',  icon: '🏨' },
+    { name: 'ハレクラニ沖縄',              sub: '恩納村名嘉真1967-1',icon: '🏨' },
+    { name: 'ANAインターコンチネンタル万座ビーチ', sub: '恩納村瀬良垣2260', icon: '🏨' },
+    { name: 'リッツカールトン沖縄',         sub: '名護市喜瀬1343-1', icon: '🏨' },
+    { name: '沖縄美ら海水族館',            sub: '本部町石川424',    icon: '🐬' },
+    { name: '古宇利島',                   sub: '今帰仁村古宇利',    icon: '🌊' },
+    { name: '那覇空港 国内線ターミナル',    sub: '那覇市鏡水150',    icon: '✈' },
+    { name: '那覇空港 国際線ターミナル',    sub: '那覇市鏡水150',    icon: '✈' },
+  ],
+};
+
+let currentLocField = 'pickup';
+
+function openLocPanel(field) {
+  currentLocField = field;
+  const dot = document.getElementById('loc-panel-dot');
+  dot.style.background = field === 'pickup' ? '#3d8a58' : '#9a7230';
+  dot.style.boxShadow = field === 'pickup'
+    ? '0 0 0 3px rgba(61,138,88,0.15)'
+    : '0 0 0 3px rgba(154,114,48,0.15)';
+
+  document.getElementById('loc-panel-input').value = '';
+  document.getElementById('loc-panel-suggest').innerHTML = '';
+  // マップを非表示・パネルをリセット
+  document.getElementById('loc-map-fixed').style.display = 'none';
+  document.getElementById('loc-panel').style.bottom = '0';
+
+  // オーバーレイとパネルを表示
+  document.getElementById('loc-panel-overlay').style.display = 'block';
+  const panel = document.getElementById('loc-panel');
+  panel.style.display = 'flex';
+
+  document.getElementById('loc-panel-input').placeholder =
+    field === 'pickup' ? '乗車場所を入力...' : '目的地を入力...';
+
+  buildRecentPanel(field);
+  buildPresetsPanel(field);
+
+  setTimeout(() => document.getElementById('loc-panel-input').focus(), 150);
+}
+
+// ── Google Maps API ──────────────────────────────────────
+let gmap = null;
+let gmapGeocoder = null;
+let gmapIdleTimer = null;
+
+function initGmap() {
+  if (gmap) return;
+  const container = document.getElementById('gmap-container');
+  if (!container || typeof google === 'undefined') return;
+
+  gmap = new google.maps.Map(container, {
+    center: { lat: 26.2124, lng: 127.6809 }, // 那覇市中心
+    zoom: 13,
+    disableDefaultUI: false,
+    zoomControl: true,
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: false,
+    gestureHandling: 'greedy',
+  });
+
+  gmapGeocoder = new google.maps.Geocoder();
+
+  // 地図が動くたびに中央の住所を取得
+  gmap.addListener('idle', () => {
+    clearTimeout(gmapIdleTimer);
+    gmapIdleTimer = setTimeout(() => {
+      const center = gmap.getCenter();
+      gmapGeocoder.geocode(
+        { location: { lat: center.lat(), lng: center.lng() }, language: 'ja' },
+        (results, status) => {
+          const el = document.getElementById('gmap-selected-name');
+          if (status === 'OK' && results[0]) {
+            const name = results[0].formatted_address
+              .replace('日本、', '')
+              .replace(/〒\d{3}-\d{4}\s*/, '');
+            if (el) el.textContent = name;
+            window.currentGmapAddress = name;
+          } else {
+            if (el) el.textContent = '場所を特定できませんでした';
+          }
+        }
+      );
+    }, 400);
+  });
+
+  // Places検索（検索バー）
+  const searchInput = document.getElementById('gmap-search-input');
+  if (searchInput) {
+    const autocomplete = new google.maps.places.Autocomplete(searchInput, {
+      componentRestrictions: { country: 'jp' },
+      fields: ['geometry', 'name', 'formatted_address'],
+    });
+    autocomplete.addListener('place_changed', () => {
+      const place = autocomplete.getPlace();
+      if (place.geometry) {
+        gmap.setCenter(place.geometry.location);
+        gmap.setZoom(16);
+        const el = document.getElementById('gmap-selected-name');
+        const name = place.name || place.formatted_address;
+        if (el) el.textContent = name;
+        window.currentGmapAddress = name;
+      }
+    });
+    // Enterキーで検索
+    searchInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') gmapSearch();
+    });
+  }
+}
+
+function gmapSearch() {
+  const val = document.getElementById('gmap-search-input').value.trim();
+  if (!val || !gmapGeocoder) return;
+  gmapGeocoder.geocode({ address: val + ' 沖縄', language: 'ja' }, (results, status) => {
+    if (status === 'OK' && results[0]) {
+      gmap.setCenter(results[0].geometry.location);
+      gmap.setZoom(16);
+    }
+  });
+}
+
+function openGmap(query) {
+  const overlay = document.getElementById('loc-map-fixed');
+  overlay.style.display = 'block';
+  // APIロード後に初期化
+  const tryInit = () => {
+    if (typeof google !== 'undefined') {
+      initGmap();
+      if (query && gmapGeocoder) {
+        gmapGeocoder.geocode({ address: query + ' 沖縄', language: 'ja' }, (results, status) => {
+          if (status === 'OK' && results[0]) {
+            gmap.setCenter(results[0].geometry.location);
+            gmap.setZoom(15);
+          }
+        });
+      }
+      const si = document.getElementById('gmap-search-input');
+      if (si) si.value = query || '';
+    } else {
+      setTimeout(tryInit, 200);
+    }
+  };
+  tryInit();
+}
+
+function useGmapPlace() {
+  const name = window.currentGmapAddress
+    || document.getElementById('gmap-selected-name')?.textContent
+    || document.getElementById('gmap-search-input')?.value.trim()
+    || '';
+  if (!name || name === '地図を動かして場所を指定') return;
+  closeMapOverlay();
+  setLocFromPanel(name);
+}
+
+// ── Google Maps API ここまで ──────────────────────────────
+
+function closeMapOverlay() {
+  document.getElementById('loc-map-fixed').style.display = 'none';
+  document.getElementById('loc-panel').style.bottom = '0';
+}
+
+function closeLocPanel() {
+  document.getElementById('loc-panel').style.display = 'none';
+  document.getElementById('loc-panel-overlay').style.display = 'none';
+  document.getElementById('loc-map-fixed').style.display = 'none';
+  document.getElementById('loc-panel').style.bottom = '0';
+  clearTimeout(window.locPanelTimer);
+}
+
+// SVGアイコンヘルパー
+function locIcon(type) {
+  const icons = {
+    clock: `<div class="loc-panel-icon" style="background:rgba(120,100,70,0.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#9a7230" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="7" x2="12" y2="12"/><line x1="12" y1="12" x2="16" y2="14.5"/></svg></div>`,
+    pin:   `<div class="loc-panel-icon" style="background:rgba(61,138,88,0.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#3d8a58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.7 2 6 4.7 6 8c0 4.5 6 13 6 13s6-8.5 6-13c0-3.3-2.7-6-6-6z"/><circle cx="12" cy="8" r="2" fill="#3d8a58" stroke="none"/></svg></div>`,
+    plane: `<div class="loc-panel-icon" style="background:rgba(61,138,88,0.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#3d8a58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15L3 19l4-1 7-7"/><path d="M15 3l2 2-9 9-3-1z"/><line x1="18" y1="14" x2="18" y2="21"/><line x1="15" y1="17.5" x2="21" y2="17.5"/></svg></div>`,
+    hotel: `<div class="loc-panel-icon" style="background:rgba(154,114,48,0.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#9a7230" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18"/><path d="M9 21V10"/></svg>`,
+    wave:  `<div class="loc-panel-icon" style="background:rgba(61,138,88,0.1);"><svg viewBox="0 0 24 24" fill="none" stroke="#3d8a58" stroke-width="2" stroke-linecap="round"><path d="M2 12c1.5-2 3-3 5-3s3.5 2 5 2 3.5-2 5-2 3.5 1 5 3"/><path d="M2 17c1.5-2 3-3 5-3s3.5 2 5 2 3.5-2 5-2 3.5 1 5 3"/></svg></div>`,
+    edit:  `<div class="loc-panel-icon" style="background:rgba(120,100,70,0.08);"><svg viewBox="0 0 24 24" fill="none" stroke="#9a7230" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.1 2.1 0 0 1 3 3L12 15l-4 1 1-4z"/></svg></div>`,
+  };
+  return icons[type] || icons.pin;
+}
+
+function iconForPreset(icon) {
+  if (icon === '✈') return locIcon('plane');
+  if (['🏨','🏯','🏛','🛍'].includes(icon)) return locIcon('hotel');
+  if (['🌊','🐬'].includes(icon)) return locIcon('wave');
+  return locIcon('pin');
+}
+
+function buildRecentPanel(field) {
+  const list = JSON.parse(localStorage.getItem('ryuga_recent_' + field) || '[]');
+  const el   = document.getElementById('loc-panel-recent');
+  el.innerHTML = '';
+  if (list.length === 0) return;
+  el.innerHTML = '<div class="loc-panel-divider">前 回 の 場 所</div>';
+  list.forEach(place => {
+    const item = document.createElement('div');
+    item.className = 'loc-panel-item';
+    item.innerHTML = locIcon('clock') + `<div><div>${place}</div></div>`;
+    item.onclick = () => setLocFromPanel(place);
+    el.appendChild(item);
+  });
+}
+
+function buildPresetsPanel(field) {
+  const el = document.getElementById('loc-panel-presets');
+  el.innerHTML = '<div class="loc-panel-divider">よ く 使 う 場 所</div>';
+  PRESETS[field].forEach(p => {
+    const item = document.createElement('div');
+    item.className = 'loc-panel-item';
+    item.innerHTML = iconForPreset(p.icon) + `<div><div>${p.name}</div><div class="loc-sub">${p.sub}</div></div>`;
+    item.onclick = () => setLocFromPanel(p.name);
+    el.appendChild(item);
+  });
+}
+
+function onLocPanelInput() {
+  const val     = document.getElementById('loc-panel-input').value.trim();
+  const suggest = document.getElementById('loc-panel-suggest');
+  suggest.innerHTML = '';
+
+  if (val.length < 1) return;
+
+  const matched = OKINAWA_SPOTS.filter(s =>
+    s.name.includes(val) || s.sub.includes(val)
+  ).slice(0, 6);
+
+  if (matched.length > 0) {
+    matched.forEach(s => {
+      const item = document.createElement('div');
+      item.className = 'loc-panel-item';
+      item.innerHTML = locIcon('pin') + `<div><div>${s.name}</div><div class="loc-sub">${s.sub}</div></div>`;
+      item.onclick = () => setLocFromPanel(s.name);
+      suggest.appendChild(item);
+    });
+  } else {
+    const item = document.createElement('div');
+    item.className = 'loc-panel-item';
+    item.innerHTML = locIcon('edit') + `<div><div>"${val}" を使用</div></div>`;
+    item.onclick = () => setLocFromPanel(val);
+    suggest.appendChild(item);
+  }
+
+  // Google Maps APIで全画面表示
+  clearTimeout(window.locPanelTimer);
+  window.locPanelTimer = setTimeout(() => {
+    openGmap(val.trim());
+  }, 600);
+}
+
+function locPanelGPS() {
+  document.getElementById('loc-panel-input').value = '⏳ 取得中...';
+  if (!navigator.geolocation) {
+    document.getElementById('loc-panel-input').value = '';
+    setLocFromPanel('現在地（取得失敗）');
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = pos.coords.latitude.toFixed(5);
+    const lng = pos.coords.longitude.toFixed(5);
+    const val = lat + ', ' + lng;
+    const mapFixed = document.getElementById('loc-map-fixed');
+    mapFixed.style.display = 'block';
+    initGmap();
+    if (gmap) {
+      gmap.setCenter({ lat: parseFloat(lat), lng: parseFloat(lng) });
+      gmap.setZoom(16);
+    }
+    document.getElementById('loc-panel-input').value = val;
+    const el = document.getElementById('gmap-selected-name');
+    if (el) el.textContent = '現在地';
+
+    // 少し待って確定
+    setTimeout(() => setLocFromPanel('現在地（' + lat + ', ' + lng + '）'), 500);
+  }, () => {
+    document.getElementById('loc-panel-input').value = '';
+    alert('現在地の取得に失敗しました。');
+  }, { enableHighAccuracy: true, timeout: 10000 });
+}
+
+function setLocFromPanel(placeName) {
+  const field = currentLocField;
+  document.getElementById('f-' + field).value = placeName;
+  const el = document.getElementById('loc-text-' + field);
+  el.textContent = placeName;
+  el.classList.add('set');
+  saveRecentLocation(field, placeName);
+  closeLocPanel();
+}
+
+function swapLocsNew() {
+  const pv = document.getElementById('f-pickup').value;
+  const dv = document.getElementById('f-dest').value;
+  const pt = document.getElementById('loc-text-pickup').textContent;
+  const dt = document.getElementById('loc-text-dest').textContent;
+  document.getElementById('f-pickup').value = dv;
+  document.getElementById('f-dest').value   = pv;
+  document.getElementById('loc-text-pickup').textContent = dt || 'タップして入力';
+  document.getElementById('loc-text-dest').textContent   = pt || 'タップして入力';
+  const pe = document.getElementById('loc-text-pickup');
+  const de = document.getElementById('loc-text-dest');
+  dv ? pe.classList.add('set') : pe.classList.remove('set');
+  pv ? de.classList.add('set') : de.classList.remove('set');
+}
+
+// ── 旧関数互換（残コードのエラー防止） ───────────────────
+function locChoosePreset(f, n) { setLocFromPanel(n); }
+function locChooseGPS(f)       { currentLocField = f; locPanelGPS(); }
+function locChooseText(f)      { openLocPanel(f); }
+function locChooseSearch(f)    { openLocPanel(f); }
+function toggleLocMenu(f)      { openLocPanel(f); }
+function onLocType(f)          {}
+function onSearchInput(f)      {}
+function selectSearchResult(f, n) { setLocFromPanel(n); }
+function showLocMap()          {}
+function useMapLocation()      {}
+
+// ── 場所選択UI ──────────────────────────────────────────
+
+const locState = { pickup: { mode: null, mapQ: '' }, dest: { mode: null, mapQ: '' } };
+
+function showLocMap(field, query, zoom) {
+  const wrap   = document.getElementById('loc-map-' + field);
+  const iframe = document.getElementById('loc-map-iframe-' + field);
+  wrap.style.display = 'block';
+  iframe.src = 'https://maps.google.com/maps?q=' + query + '&output=embed&hl=ja&z=' + (zoom || 14);
+  locState[field].mapQ = decodeURIComponent(query);
+}
+
+function locChooseGPS(field) {
+  document.getElementById('loc-menu-' + field).style.display = 'none';
+  document.getElementById('loc-text-' + field).textContent = '⏳ 現在地を取得中...';
+  document.getElementById('f-' + field).style.display = 'none';
+  document.getElementById('loc-map-' + field).style.display = 'none';
+
+  if (!navigator.geolocation) {
+    document.getElementById('loc-text-' + field).textContent = '✗ 位置情報が使えません';
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = pos.coords.latitude.toFixed(5);
+    const lng = pos.coords.longitude.toFixed(5);
+    document.getElementById('f-' + field).value = lat + ', ' + lng;
+    document.getElementById('loc-text-' + field).textContent = '📍 現在地を取得しました';
+    document.getElementById('loc-text-' + field).style.color = 'var(--white)';
+    showLocMap(field, lat + ',' + lng, 16);
+  }, () => {
+    document.getElementById('loc-text-' + field).textContent = '✗ 取得失敗。直接入力してください';
+    locChooseText(field);
+  }, { enableHighAccuracy: true, timeout: 10000 });
+}
+
+function locChooseSearch(field) {
+  document.getElementById('loc-menu-' + field).style.display = 'none';
+  document.getElementById('f-' + field).style.display = 'none';
+  document.getElementById('loc-search-' + field).style.display = 'block';
+  document.getElementById('f-search-' + field).value = '';
+  document.getElementById('f-search-' + field).focus();
+  document.getElementById('loc-text-' + field).textContent = '🔍 場所名・住所を入力してください';
+  document.getElementById('loc-text-' + field).style.color = 'var(--gold)';
+  document.getElementById('loc-map-' + field).style.display = 'none';
+}
+
+// 沖縄の主要スポット（候補データ）
+const OKINAWA_SPOTS = [
+  { name: '那覇空港 国内線ターミナル', sub: '那覇市鏡水150' },
+  { name: '那覇空港 国際線ターミナル', sub: '那覇市鏡水150' },
+  { name: '那覇バスターミナル', sub: '那覇市泉崎1-20-1' },
+  { name: '那覇港', sub: '那覇市西3-11' },
+  { name: '国際通り', sub: '那覇市牧志' },
+  { name: '首里城公園', sub: '那覇市首里金城町1-2' },
+  { name: 'ザ・ブセナテラス', sub: '名護市喜瀬1808' },
+  { name: 'ハレクラニ沖縄', sub: '恩納村名嘉真1967-1' },
+  { name: 'ANAインターコンチネンタル万座ビーチ', sub: '恩納村瀬良垣2260' },
+  { name: 'ホテル日航アリビラ', sub: '読谷村儀間600' },
+  { name: 'リッツカールトン沖縄', sub: '名護市喜瀬1343-1' },
+  { name: '沖縄残波岬ロイヤルホテル', sub: '読谷村宇座1泊27' },
+  { name: 'ヒルトン沖縄北谷リゾート', sub: '北谷町美浜40-1' },
+  { name: '沖縄美ら海水族館', sub: '本部町石川424' },
+  { name: '古宇利島', sub: '今帰仁村古宇利' },
+  { name: '万座毛', sub: '恩納村恩納2767' },
+  { name: '瀬長島', sub: '豊見城市瀬長174-6' },
+  { name: '国際通り むつみ橋交差点', sub: '那覇市牧志3' },
+  { name: '沖縄県庁', sub: '那覇市泉崎1-2-2' },
+  { name: '那覇市役所', sub: '那覇市泉崎1-1-1' },
+  { name: 'ゆいレール 那覇空港駅', sub: '那覇市鏡水150' },
+  { name: 'ゆいレール おもろまち駅', sub: '那覇市おもろまち4-1' },
+  { name: 'DFSギャラリア沖縄', sub: '那覧市おもろまち4-1' },
+  { name: '沖縄アウトレットモールあしびなー', sub: '豊見城市豊崎1-188' },
+  { name: 'イオンモール沖縄ライカム', sub: '中城村北上原730' },
+  { name: '名護市役所', sub: '名護市港1-1-1' },
+  { name: '石垣港離島ターミナル', sub: '石垣市美崎町1' },
+  { name: '恩納村役場', sub: '恩納村字恩納2451' },
+  { name: '読谷村役場', sub: '読谷村字読谷915' },
+  { name: '本部港', sub: '本部町字崎本部5351' },
+];
+
+function onSearchInput(field) {
+  const val = document.getElementById('f-search-' + field).value.trim();
+  const suggestBox = document.getElementById('loc-suggest-' + field);
+
+  if (val.length < 1) { suggestBox.style.display = 'none'; return; }
+
+  // 候補フィルタ
+  const matched = OKINAWA_SPOTS.filter(s =>
+    s.name.includes(val) || s.sub.includes(val)
+  ).slice(0, 8);
+
+  if (matched.length === 0) {
+    suggestBox.style.display = 'none';
+    // 入力値をそのまま候補として表示
+    suggestBox.innerHTML = `<div class="loc-suggest-item" onclick="selectSearchResult('${field}','${val}')">
+      <div>✏️ "${val}" を使用</div>
+    </div>`;
+    suggestBox.style.display = 'block';
+    return;
+  }
+
+  suggestBox.innerHTML = matched.map(s => `
+    <div class="loc-suggest-item" onclick="selectSearchResult('${field}','${s.name}')">
+      <div>${s.name}</div>
+      <div class="suggest-sub">${s.sub}</div>
+    </div>
+  `).join('');
+  suggestBox.style.display = 'block';
+
+  // マップもリアルタイム更新
+  clearTimeout(window['searchTimer_' + field]);
+  window['searchTimer_' + field] = setTimeout(() => {
+    showLocMap(field, encodeURIComponent(val + ' 沖縄'), 13);
+  }, 600);
+}
+
+function selectSearchResult(field, placeName) {
+  document.getElementById('f-' + field).value = placeName;
+  document.getElementById('loc-text-' + field).textContent = placeName;
+  document.getElementById('loc-text-' + field).style.color = 'var(--white)';
+  document.getElementById('loc-suggest-' + field).style.display = 'none';
+  document.getElementById('loc-search-' + field).style.display = 'none';
+  saveRecentLocation(field, placeName);
+  showLocMap(field, encodeURIComponent(placeName + ' 沖縄'), 15);
+}
+
+function locChooseMap(field) {
+  // 旧関数（互換性のため残す）
+  locChooseSearch(field);
+}
+
+function locChooseText(field) {
+  document.getElementById('loc-menu-' + field).style.display = 'none';
+  document.getElementById('f-' + field).style.display = 'block';
+  document.getElementById('f-' + field).placeholder = field === 'pickup' ? '例）那覇空港 国内線ターミナル' : '例）ザ・ブセナテラス';
+  document.getElementById('f-' + field).focus();
+  document.getElementById('loc-text-' + field).textContent = '✏️ 住所・場所名を入力してください';
+  document.getElementById('loc-text-' + field).style.color = 'var(--gold)';
+  // 入力欄が空なら沖縄全体を表示
+  const val = document.getElementById('f-' + field).value.trim();
+  if (val) {
+    showLocMap(field, encodeURIComponent(val + ' 沖縄'), 14);
+  } else {
+    showLocMap(field, encodeURIComponent('沖縄県'), 10);
+  }
+}
+
+function onLocType(field) {
+  const val = document.getElementById('f-' + field).value.trim();
+  if (val.length > 1) {
+    document.getElementById('loc-text-' + field).textContent = val;
+    document.getElementById('loc-text-' + field).style.color = 'var(--white)';
+    clearTimeout(window['locTimer_' + field]);
+    window['locTimer_' + field] = setTimeout(() => {
+      showLocMap(field, encodeURIComponent(val + ' 沖縄'), 14);
+    }, 800);
+  }
+}
+
+function useMapLocation(field) {
+  const val = document.getElementById('f-' + field).value.trim() || locState[field].mapQ;
+  if (val) {
+    document.getElementById('loc-text-' + field).textContent = val;
+    document.getElementById('loc-text-' + field).style.color = 'var(--white)';
+    document.getElementById('f-' + field).value = val;
+    saveRecentLocation(field, val);
+  }
+  document.getElementById('f-' + field).style.display = 'none';
+}
+
+function useMapLocation(field) {
+  const val = document.getElementById('f-' + field).value.trim() || locState[field].mapQ;
+  if (val) {
+    document.getElementById('loc-text-' + field).textContent = val;
+    document.getElementById('loc-text-' + field).style.color = 'var(--white)';
+    document.getElementById('f-' + field).value = val;
+    saveRecentLocation(field, val);
+  }
+  document.getElementById('loc-map-' + field).style.display = 'none';
+  document.getElementById('f-' + field).style.display = 'none';
+}
+
+function swapLocsNew() {
+  const pv = document.getElementById('f-pickup').value;
+  const dv = document.getElementById('f-dest').value;
+  const pt = document.getElementById('loc-text-pickup').textContent;
+  const dt = document.getElementById('loc-text-dest').textContent;
+  document.getElementById('f-pickup').value = dv;
+  document.getElementById('f-dest').value   = pv;
+  document.getElementById('loc-text-pickup').textContent = dt;
+  document.getElementById('loc-text-dest').textContent   = pt;
+}
+
+// ── 既存のsetStep内でStep2初期化（新UI用） ─────────────
+function setStep(n) {
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById('fs-' + n) || document.getElementById('fs-complete');
+  if (target) target.classList.add('active');
+
+  for (let i = 1; i <= 5; i++) {
+    const c = document.getElementById('sc-' + i);
+    const l = document.getElementById('sl-' + i);
+    if (!c) continue;
+    c.classList.remove('active','done');
+    l.classList.remove('active');
+    if (i < n) { c.classList.add('done'); c.textContent = '✓'; }
+    else if (i === n) { c.classList.add('active'); c.textContent = i; l.classList.add('active'); }
+    else { c.textContent = i; }
+  }
+
+  for (let i = 1; i <= 4; i++) {
+    const con = document.getElementById('scon-' + i);
+    if (con) con.classList.toggle('done', i < n);
+  }
+
+  // Step2表示時にウィジェット初期化
+  if (n === 2) {
+    loadRecentLocations('pickup');
+    loadRecentLocations('dest');
+  }
+
+  document.getElementById('booking').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function go(from) {
+  if (from === 1) {
+    if (!selCourse) { document.getElementById('err-1').textContent = (I18N[currentLang]||I18N.ja).lblSelectCourse || 'コースをお選びください'; return; }
+  }
+  if (from === 2) {
+    const d = document.getElementById('f-date').value;
+    const t = document.getElementById('f-time').value;
+    const p = document.getElementById('f-pickup').value.trim();
+    const de = document.getElementById('f-dest').value.trim();
+    const px = document.getElementById('f-pax').value;
+    if (!d||!t||!p||!de||!px) { document.getElementById('err-2').textContent = 'すべての項目を入力してください'; return; }
+    document.getElementById('err-2').textContent = '';
+  }
+  if (from === 3) {
+    const n = document.getElementById('f-name').value.trim();
+    const ph = document.getElementById('f-phone').value.trim();
+    const em = document.getElementById('f-email').value.trim();
+    const t = I18N[currentLang] || I18N.ja;
+    if (!n||!ph||!em) { document.getElementById('err-3').textContent = t.errAll || 'お名前・電話番号・メールアドレスは必須です'; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { document.getElementById('err-3').textContent = t.errEmail || 'メールアドレスの形式が正しくありません'; return; }
+    document.getElementById('err-3').textContent = '';
+    fillConfirm();
+  }
+  setStep(from + 1);
+}
+
+function back(from) { setStep(from - 1); }
+
+function fillConfirm() {
+  const dv = document.getElementById('f-date').value;
+  const dateStr = dv ? new Date(dv+'T00:00:00').toLocaleDateString('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'short'}) : '';
+  document.getElementById('c-course').textContent   = selCourse + '　' + selPrice;
+  document.getElementById('c-datetime').textContent = dateStr + '　' + document.getElementById('f-time').value;
+  document.getElementById('c-pickup').textContent   = document.getElementById('f-pickup').value;
+  document.getElementById('c-dest').textContent     = document.getElementById('f-dest').value;
+  document.getElementById('c-pax').textContent      = document.getElementById('f-pax').value;
+  document.getElementById('c-name').textContent     = document.getElementById('f-name').value + (document.getElementById('f-kana').value ? '　' + document.getElementById('f-kana').value : '');
+  document.getElementById('c-phone').textContent    = document.getElementById('f-phone').value;
+  document.getElementById('c-email').textContent    = document.getElementById('f-email').value;
+  document.getElementById('c-notes').textContent    = document.getElementById('f-notes').value || 'なし';
+}
+
+function goToPayment() {
+  // 確認画面→決済画面
+  document.getElementById('pay-course-disp').textContent = selCourse + '　' + selPrice;
+  document.getElementById('pay-total-disp').textContent = selPrice;
+  setStep(5);
+}
+
+// ── 決済方法 ──
+let selPay = '';
+const qrSvcs = { paypay:'PayPay', linepay:'LINE Pay', merpay:'メルペイ', aupay:'au PAY', dbarai:'d払い', rakuten:'楽天ペイ' };
+
+function selectPay(el, method) {
+  document.querySelectorAll('.pay-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selPay = method;
+  document.getElementById('err-5').textContent = '';
+
+  // すべて非表示
+  ['card-form-wrap','qr-wrap','ic-wrap','cash-wrap','invoice-wrap'].forEach(id => {
+    document.getElementById(id).style.display = 'none';
+  });
+
+  if (method === 'card') {
+    document.getElementById('card-form-wrap').style.display = 'block';
+  } else if (qrSvcs[method]) {
+    document.getElementById('qr-title').textContent = qrSvcs[method];
+    document.getElementById('qr-wrap').style.display = 'block';
+  } else if (method === 'ic') {
+    document.getElementById('ic-wrap').style.display = 'block';
+  } else if (method === 'cash') {
+    document.getElementById('cash-wrap').style.display = 'block';
+  } else if (method === 'invoice') {
+    document.getElementById('invoice-wrap').style.display = 'block';
+  }
+}
+
+function fmtCard(el) {
+  let v = el.value.replace(/\D/g,'').substring(0,16);
+  el.value = v.replace(/(.{4})/g,'$1 ').trim();
+}
+
+function fmtExp(el) {
+  let v = el.value.replace(/\D/g,'');
+  if (v.length >= 2) v = v.substring(0,2) + ' / ' + v.substring(2,4);
+  el.value = v;
+}
+
+function updVC() {
+  const n = document.getElementById('p-cardnum').value || '';
+  document.getElementById('vc-num').textContent = (n + ' •••• •••• •••• ••••').substring(0,19) || '•••• •••• •••• ••••';
+  document.getElementById('vc-name').textContent = document.getElementById('p-cardname').value.toUpperCase() || 'YOUR NAME';
+  document.getElementById('vc-exp').textContent = document.getElementById('p-cardexp').value || 'MM / YY';
+}
+
+function submitPayment() {
+  if (!selPay) { document.getElementById('err-5').textContent = 'お支払い方法をお選びください'; return; }
+  // 処理中演出
+  const btn = document.getElementById('pay-submit-btn');
+  btn.textContent = '処理中...';
+  btn.disabled = true;
+  setTimeout(() => submit(), 1800);
+}
+
+function submit() {
+  const num = 'SH-' + String(Math.floor(Math.random()*900000)+100000);
+  document.getElementById('booking-num').textContent = num;
+
+  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('fs-complete').classList.add('active');
+
+  for (let i = 1; i <= 5; i++) {
+    const c = document.getElementById('sc-' + i);
+    if (c) { c.classList.remove('active'); c.classList.add('done'); c.textContent = '✓'; }
+    const l = document.getElementById('sl-' + i);
+    if (l) l.classList.remove('active');
+  }
+  for (let i = 1; i <= 4; i++) {
+    const con = document.getElementById('scon-' + i);
+    if (con) con.classList.add('done');
+  }
+
+  document.getElementById('booking').scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function reset() {
+  selCourse = ''; selPrice = ''; selPay = '';
+  document.querySelectorAll('.course-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.pay-card').forEach(c => c.classList.remove('selected'));
+  ['f-date','f-time','f-pickup','f-dest','f-name','f-kana','f-phone','f-email','f-notes',
+   'p-cardnum','p-cardname','p-cardexp','p-cardcvc'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.value = ''; el.classList.remove('filled'); }
+  });
+  document.getElementById('f-pax').value = '';
+  ['card-form-wrap','qr-wrap','ic-wrap','cash-wrap','invoice-wrap'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+  const btn = document.getElementById('pay-submit-btn');
+  if (btn) { btn.textContent = '予約を確定する'; btn.disabled = false; }
+  setStep(1);
+}
+
+// ============================================================
+//  RYUGA PREMIER - Google Apps Script API 連携
+// ============================================================
+
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbx0QE6eWBzM4FxIZVmf0Ei25z3zYndwkbU5d3PZSoMIoaFRtAxy2jtlgR4ggLyrp-O7/exec';
+
+// 空き枠取得
+async function fetchAvailableSlots(date) {
+  try {
+    const res = await fetch(GAS_URL + '?action=getSlots&date=' + date);
+    return await res.json();
+  } catch(e) {
+    console.error('空き枠取得エラー:', e);
+    return null;
+  }
+}
+
+// 予約送信
+async function submitBookingToGAS(data) {
+  try {
+    const res = await fetch(GAS_URL, {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body   : JSON.stringify({ action: 'createBooking', ...data }),
+    });
+    return await res.json();
+  } catch(e) {
+    console.error('予約送信エラー:', e);
+    return { success: false, message: '通信エラーが発生しました' };
+  }
+}
+
+// キャンセル
+async function cancelBookingToGAS(bookingId, reason) {
+  try {
+    const res = await fetch(GAS_URL, {
+      method : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body   : JSON.stringify({ action: 'cancelBooking', bookingId, reason }),
+    });
+    return await res.json();
+  } catch(e) {
+    console.error('キャンセルエラー:', e);
+    return { success: false };
+  }
+}
+
+// 決済確定時にGASへ送信
+async function confirmPaymentToGAS() {
+  const data = {
+    course     : selCourse,
+    price      : selPrice,
+    date       : document.getElementById('f-date').value,
+    time       : document.getElementById('f-time').value,
+    pickup     : document.getElementById('f-pickup').value,
+    destination: document.getElementById('f-dest').value,
+    pax        : document.getElementById('f-pax').value,
+    name       : document.getElementById('f-name').value + ' ' + (document.getElementById('f-kana').value || ''),
+    phone      : document.getElementById('f-phone').value,
+    email      : document.getElementById('f-email').value,
+    notes      : document.getElementById('f-notes').value,
+    payMethod  : selPay,
+    durationMin: 60,
+  };
+
+  const btn = document.getElementById('pay-submit-btn');
+  btn.textContent = '送信中...';
+  btn.disabled = true;
+
+  const result = await submitBookingToGAS(data);
+
+  if (result && result.success) {
+    // 予約番号をGASから受け取って表示
+    document.getElementById('booking-num').textContent = result.bookingId || 'RP-' + String(Math.floor(Math.random()*900000)+100000);
+
+    // Stripe決済リンクがあれば開く
+    if (result.paymentUrl) {
+      window.open(result.paymentUrl, '_blank');
+    }
+
+    // 完了画面へ
+    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('fs-complete').classList.add('active');
+    for (let i = 1; i <= 4; i++) {
+      const c = document.getElementById('sc-' + i);
+      if (c) { c.classList.remove('active'); c.classList.add('done'); c.textContent = '✓'; }
+    }
+    document.getElementById('booking').scrollIntoView({ behavior:'smooth', block:'start' });
+  } else {
+    btn.textContent = '予約を確定する';
+    btn.disabled = false;
+    alert('エラーが発生しました。もう一度お試しください。\n' + (result ? result.message : ''));
+  }
+}
+</script>
+</body>
+</html>
