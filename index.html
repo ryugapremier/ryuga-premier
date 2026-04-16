@@ -3517,6 +3517,9 @@ function initGmap() {
             el.style.fontWeight = '600';
           }
           window.currentGmapAddress = name;
+          // ボタンを光らせてEnterキーのヒントを表示
+          const btn = document.querySelector('#loc-map-fixed button');
+          if (btn) { btn.style.background = '#9a7230'; btn.textContent = '✓ この場所を使用  [ Enter ]'; }
         }
       }
     );
@@ -3566,7 +3569,14 @@ function initGmap() {
     });
     // Enterキーで検索
     searchInput.addEventListener('keydown', e => {
-      if (e.key === 'Enter') gmapSearch();
+      if (e.key === 'Enter') {
+        // 場所が選択済みならそのまま確定、なければ検索
+        if (window.currentGmapAddress) {
+          useGmapPlace();
+        } else {
+          gmapSearch();
+        }
+      }
     });
   }
 }
@@ -3589,6 +3599,13 @@ function openGmap(query) {
   // ピンをリセット
   const nameEl = document.getElementById('gmap-selected-name');
   if (nameEl) { nameEl.textContent = '地図をタップして場所を指定'; nameEl.style.color = ''; nameEl.style.fontWeight = ''; }
+  // Enterキーで確定
+  window._gmapEnterHandler = (e) => {
+    if (e.key === 'Enter' && window.currentGmapAddress) {
+      useGmapPlace();
+    }
+  };
+  document.addEventListener('keydown', window._gmapEnterHandler);
   // APIロード後に初期化
   const tryInit = () => {
     if (typeof google !== 'undefined') {
@@ -3615,7 +3632,10 @@ function useGmapPlace() {
     || document.getElementById('gmap-selected-name')?.textContent
     || document.getElementById('gmap-search-input')?.value.trim()
     || '';
-  if (!name || name === '地図を動かして場所を指定') return;
+  if (!name || name === '地図を動かして場所を指定' || name === '地図をタップして場所を指定') return;
+  // ボタンをリセット
+  const btn = document.querySelector('#loc-map-fixed button');
+  if (btn) { btn.style.background = '#1a2d5a'; btn.textContent = '✓ この場所を使用'; }
   closeMapOverlay();
   setLocFromPanel(name);
 }
@@ -3625,6 +3645,10 @@ function useGmapPlace() {
 function closeMapOverlay() {
   document.getElementById('loc-map-fixed').style.display = 'none';
   document.getElementById('loc-panel').style.bottom = '0';
+  if (window._gmapEnterHandler) {
+    document.removeEventListener('keydown', window._gmapEnterHandler);
+    window._gmapEnterHandler = null;
+  }
 }
 
 function closeLocPanel() {
