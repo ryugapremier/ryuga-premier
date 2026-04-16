@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>首里ハイヤー｜沖縄プレミアムハイヤー</title>
-<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&family=Zen+Antique+Soft&family=Noto+Sans+JP:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&family=Zen+Antique+Soft&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:         #f7f3ee;
@@ -36,6 +36,34 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
+}
+
+/* 繁体字フォント切替 */
+body.lang-zh {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+body.lang-zh .hero-title,
+body.lang-zh .section-ja,
+body.lang-zh .service-name-ja,
+body.lang-zh .course-name-ja,
+body.lang-zh .complete-title,
+body.lang-zh .footer-name-ja,
+body.lang-zh .btn-yoyaku,
+body.lang-zh .btn-next,
+body.lang-zh .btn-reset {
+  font-family: 'Noto Sans TC', sans-serif !important;
+}
+body.lang-zh .field-label,
+body.lang-zh .confirm-key,
+body.lang-zh .confirm-val,
+body.lang-zh .concept-text,
+body.lang-zh .complete-msg,
+body.lang-zh .notice-box,
+body.lang-zh .btn-back,
+body.lang-zh .service-desc,
+body.lang-zh .confirm-block-head,
+body.lang-zh .footer-info {
+  font-family: 'Noto Sans TC', sans-serif !important;
 }
 
 /* ── フォント定義 ── */
@@ -2816,7 +2844,7 @@ const I18N = {
     phNotes:'Child seat, extra luggage, other requests...',
     btnToConfirm:'Review Booking',
     cheadBooking:'Booking Details',cheadCustomer:'Your Information',
-    paxUnit:'pax',
+    paxUnit:' pax',
     ckeyCourseLbl:'Course',ckeyDatetime:'Date & Time',ckeyPickup:'Pickup',ckeyDest:'Destination',ckeyPax:'Passengers',
     ckeyName:'Name',ckeyPhone:'Phone',ckeyEmail:'Email',ckeyNotes:'Requests',
     noticeConfirm:'After confirming your reservation, our staff will contact you by phone or email.<br>Free cancellation up to 24 hours before pickup.',
@@ -2944,6 +2972,9 @@ function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('ryuga_lang', lang);
   const t = I18N[lang];
+
+  // ZHフォント切替
+  document.body.classList.toggle('lang-zh', lang === 'zh');
 
   document.getElementById('lang-modal').style.display = 'none';
   ['ja','en','ko','zh'].forEach(l => {
